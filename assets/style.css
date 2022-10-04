@@ -1,0 +1,61 @@
+/* reset css genérico */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box
+  }
+
+  body{
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  /* remover estilo dos links */
+   a{
+    all: unset;
+    cursor: pointer;
+  }
+  
+/* mobile first */
+
+@media screen and (min-width: 0) and (max-width: 768px) {
+  body{
+    background-color: gray;
+  }
+}
+
+/* tablets and larger devices */
+@media screen and (min-width: 768px) and (max-width:992px){
+  body{
+    background-color: cornflowerblue;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width:1200px){
+  body{
+    background-color: darkcyan;
+  }
+}
+@media screen and (min-width: 1200px){
+
+  body{
+    display: flex;
+    flex-direction: column;
+  }
+  header{
+    height: 100px;
+    background-color: red;
+  }
+  main{
+    flex: 1;
+    background-color: beige;
+  }
+  footer{
+    height: 50px;
+    background-color: green;
+  }
+}
+
+/* desktop */
+
+
