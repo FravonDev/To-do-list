@@ -1,15 +1,13 @@
 class Card{
     name = 'foo';
 
-
-
     constructor(name){
         this.tasks = [];
         this.name = name
     }
 
-    createNewTask(status, description ){
-        this.tasks.push(new Task(status , description));
+    createNewTask(description){
+        this.tasks.push(new Task(description));
         console.log(JSON.stringify(this.tasks))
 
     }
@@ -20,10 +18,9 @@ class Card{
                 console.log(description)
                 //return is valid
                 return true;
-
             }
-        
-        return new Error('Campo vazio')
+        //TODO: Criar um erro quando retornou false
+        return false;
 
     }
     deleteTask(description){
@@ -42,7 +39,7 @@ class Card{
 }
 
 class Task{
-    constructor(status, description ){
+    constructor(description ){
         this.status = false
         this.description = description
         // make a unique id
@@ -51,31 +48,35 @@ class Task{
 }
 
 //criar card 
-const shortCard = new Card('short');
+const shortCard = new Card('shortCard');
 
 shortCard.createNewTask('checked','verify');
 shortCard.createNewTask('unchecked','soner blaner');
 shortCard.createNewTask('checked','se organizar');
 
 
-
+console.log(shortCard)
 
 
 //Quando o form for enviado, Escutar pelo evento submit em cada form
 const form = document.querySelectorAll('.addTask').forEach(element => {
     element.addEventListener('submit', e => {
         e.preventDefault() // remover o redirect padrão do form.
-        //TODO: get the currentCard
+        
+        console.log('pegamos dados do form')
+
+        //TODO: pegar o card atual, que está sendo utilizado.
 
         // pegar e guardar o valor do input
         let inputValue = element.querySelector('input').value
+
         // verificar se o valor é valido.
-        shortCard.validateDescription(inputValue)
-        // TODO:
+        let validated = shortCard.validateDescription(inputValue)
+        // TODO: inser
+        if (validated){
+            // crie uma nova task com esta description no card
+            shortCard.createNewTask(inputValue)
+        }
 
-
-        // crie uma nova task com esta description no card
-        shortCard.createNewTask()
-        console.log('pegamos dados do form')
     })
 });
