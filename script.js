@@ -5,7 +5,7 @@ class Card{
         this.tasks = [];
         this.name = name
     }
-
+    //criar nova tarefa
     createNewTask(description){
         this.tasks.push(new Task(description));
                 
@@ -33,10 +33,15 @@ class Card{
     updateTask(){
         //TODO:
     }
-    // transformar em elemento HTML
+    // transformar dados do localStorage do(s) card em elemento HTML
     refreshCards(){
-        //TODO:
+        //FIXME:
+        console.log('funçãorefresh')
         this.tasks = JSON.parse(localStorage.getItem(this.name))
+        // console.log(this.tasks)
+        showInScreen(this)
+
+
 
     }
 }
@@ -53,24 +58,25 @@ const mediumCard = new Card('mediumCard')
 const longCard = new Card('longCard')
 
 
-shortCard.refreshCards()
 
 //Quando o form for enviado, Escutar pelo evento submit em cada form
 document.querySelectorAll('.card').forEach(card => {
     card.querySelector('.addTask').addEventListener('submit', e => {
         e.preventDefault() // remover o redirect padrão do form.
-        //TODO: pegar o card atual, que está sendo utilizado.
         // pegar e guardar o valor do input
         let inputValue = card.querySelector('input').value
-
         validationsCardObject(inputValue, card)
 
     })
 });
 
+//FIXME:
+//atualizar os cards quanto a página for carregada.
+[shortCard, mediumCard, longCard].forEach(card => card.refreshCards())
 
 
 function validationsCardObject(inputValue, currentCard){
+    // verificar qual card receberá o novo valor
     switch(currentCard.id){
         case shortCard.name:
             currentCard = shortCard
@@ -83,9 +89,6 @@ function validationsCardObject(inputValue, currentCard){
             break;
     }
 
-
-    console.log(currentCard)
-
     // verificar se o valor é valido.
     let validated = currentCard.validateDescription(inputValue)
 
@@ -94,4 +97,32 @@ function validationsCardObject(inputValue, currentCard){
         currentCard.createNewTask(inputValue)
         currentCard.refreshCards()
     }
+}
+
+//função para mostrar o dado da 
+function showInScreen(card){
+    console.log(card)
+    // selecionar a div correta
+    let currentElement = document.querySelector(`#${card.name}`)
+    
+    currentTaskElement = currentElement.querySelector('.tasks')
+    console.log(currentTaskElement)
+
+    // adicionar as task na div card
+    card.tasks.forEach(el => {
+        //criar um checkbox
+        //FIXME:
+        let input = document.createElement('input')
+        input.setAttribute('type', 'checkbox')
+        input.checked = true
+        
+
+        // criar um label
+        let label = document.createElement('label')
+        label.innerText = el.description
+
+        //inserir os elementos no Elemento Card
+        currentTaskElement.append(input)
+
+    })
 }
