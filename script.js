@@ -1,33 +1,30 @@
-// Create the taks class
+// Criar a classe Tasks, que são nossas tarefas.
 class Task{
-    constructor(description ){
-        this.status = false
+    constructor(status, description){
+        this.status = status
         this.description = description
     }
 }
 
-//criar a classe card
+//criar a classe card, que é onde ficam nossas tarefas
 class Card{
-    name = 'foo';
+    name;
+    tasks = []
 
     constructor(name){
-        this.tasks = [];
         this.name = name
     }
 
     //métodos
 
-    // Método de imprimir
+    // Método para imprimir
     printTask(status, description){
-        console.log(typeof description)
         // validar se a descrição é valida.
-        if(description.trim() == "" || typeof description != 'string'){
-            //se for invalida, não faça nada.
-            console.log('Descrição invalida')
-            return false;
+        if (this.validateDescription(description) == false){
+            // se for inválida, interrompa a execução do método
+            return false
         }
-
-
+        
         // criar e adicionar valores no checkbox .
         let checkbox = document.createElement('input')
         checkbox.setAttribute('type', 'checkbox')
@@ -47,22 +44,51 @@ class Card{
         let cardElement  = document.querySelector(`#${this.name}`)
         cardElement = cardElement.querySelector('.tasks');
         cardElement.append(groupTaskElements)
-
-      
         
+        //FIXME:
+        /* depois que colocar os elementos na tela, atualize os dados da localStorage para eliminar
+        dados em brancos criados pela edição da tarefa
+        para espaço em branco ou tarefa vazia */
+    }
+    // método de carregar os dados.
+    loadElements(){
+        // pegue as tasks que etão guardadas no localStorage
+        let tasks = localStorage.getItem(`${this.name}`)
+        // guarde essas tasks no seu respectivo card.
+        tasks = JSON.parse(tasks)
+        this.tasks = tasks
 
+        //adicione cada elemento na tela.
+        this.tasks.forEach(task => this.printTask(
+            task.status, task.description))
+    }
+    
+    //métodos secundarios
+    validateDescription(description){
+        console.log('ta validando')
+        if(typeof description != 'string' || description.trim() == ""){
+            //se for invalida, não faça nada.
+            console.log('Descrição invalida')
+            return false;
+        }
     }
 
 }
-//testar a função printTask
-shortCard = new Card('shortCard')
-console.log(shortCard)
-shortCard.printTask(true , 'virtual insanity')
-shortCard.printTask(false , 'is what we re living in')
-shortCard.printTask(false , 'a')
-shortCard.printTask(false , '')
+
+let mediumCard = new Card('mediumCard')
+// adicionar valores pra serem adicionar quando a pagina carregar.
+let task1 = new Task(true, "Dojyaaan")
+let task2 = new Task(false, "Dirt Deeds Done Dirt Cheap")
+let task3 = new Task(true, "BANKAI!!!")
+let task4 = new Task(true, "")
+let task5 = new Task(true, "zenbonsakura kageyoshi")
+
+let takers = [task1, task2, task3, task4, task5]
+localStorage.setItem('mediumCard', JSON.stringify(takers))
+mediumCard.loadElements()
 
 
-shortCard.printTask(true , 'yeah yeah')
-shortCard.printTask(false , 'Its alright now')
+// criar 2 tasks e adicionar no card
+
+
 

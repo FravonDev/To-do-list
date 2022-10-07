@@ -48,11 +48,17 @@ Cada lista terá:
 
     <h4> 2 carregar dados  e chamar o método de imprimir na tela.</h4>
 
-    - [ ] quando a página for carregada, use o método loadElements()
-    - [ ] criar o método de carregar dados já existentes.
-    - [ ] criar um objeto card atráves da classe Card
-    - [ ] crie o método loadELements(), que pegará os elementos **Deste mesmo card (this)**  na localStorage e colocará cada elemento dentro do elementoCard respectivo, no array tasks, ou seja se for shortcard(objeto) coloque dentro do shortcard(elementoHTML).
-    - [ ] para cada objeto task, dentro deste array, chame a função adicionar( talvez Imprimir, teste)
+    - [X] quando a página for carregada, use o método loadElements()
+    - [x] criar o método de carregar dados já existentes.
+    - [x] criar um objeto card atráves da classe Card
+    - [x] crie o método loadELements(), que pegará os elementos **Deste mesmo card (this)**  na localStorage e colocará cada elemento dentro do elementoCard respectivo, no array tasks, ou seja se for shortcard(objeto) coloque dentro do shortcard(elementoHTML).
+    - [x] para cada objeto task, dentro deste array, chame a função adicionar( talvez Imprimir, teste)
+
+    <h4> 2.1 Validar a descrição (Método Secundário) </h4>
+
+    - [X] criar um método para verificar se a string é valida
+    - [X] verificar se a descrição é so tipo string, se não está  vazia e se não tem apenas espaços em branco.
+    - [X] retornar false se não for valido.
 
     <h4> 4 Método para atualizar, editar uma tarefa</h4>
 
@@ -75,6 +81,8 @@ Cada lista terá:
 <hr>
 
 ## flash ideas
+verificar se tem elemento em branco na localStorage adicionado via update (editando uma task pra "").
+
 validação
 
 fazer o método, imprimir aceitar argumentos sobre a inserção, alternativa ao array.push() index do elemento que será atualizado, mas deve ter um valor padrão de this.taks.lenght que é o ultimo elemento 
@@ -84,7 +92,6 @@ You want the splice function on the native array object.
 arr.splice(index, 0, item);
 will insert item into arr at the specified index
 (deleting 0 items first, that is, it's just an insert).
-
 
 ```
 
