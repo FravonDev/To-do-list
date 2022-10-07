@@ -40,9 +40,9 @@ Cada lista terá:
 
     <h4>1 Método de imprimir os dados na tela do seu respectivo Cardelement</h4>
 
-    - [ ] deverá receber o checked status(true ou false) e a description
-    - [ ] adicione os valores no HTMl do seu respectivo card, ou seja se for shortcard(objeto) coloque dentro do shortcard(elementoHTML).
-    - [ ] se este elemento tiver a **descrição** em branco ou com espaços. não faça nada
+    - [X] deverá receber o checked status(true ou false) e a description
+    - [X] adicione os valores no HTMl do seu respectivo card, ou seja se for shortcard(objeto) coloque dentro do shortcard(elementoHTML).
+    - [X] se este elemento tiver a **descrição** em branco, se não for uma string ou com espaços. pare a execução do método ou seja,não faça nada (return false).
 
 
 
