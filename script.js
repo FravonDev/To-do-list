@@ -65,6 +65,11 @@ class Card{
     loadElements(){
         // pegue as tasks que etão guardadas no localStorage
         let tasks = localStorage.getItem(`${this.name}`)
+        /* se não tiver nenhuma tarefa,
+         nao tem o que ser carregado, então pare a execução. */
+        if (!tasks){
+            return false
+        }
         // guarde essas tasks no seu respectivo card.
         tasks = JSON.parse(tasks)
         this.tasks = tasks
