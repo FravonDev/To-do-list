@@ -65,16 +65,25 @@ Cada lista terá:
     - [X] a classe cards deverá ter o método de adicionar  os dados no HTML com  o printTask()
     - [X] logo depois de mostrar os dados no html, salve os dados do card no local storage, ou seja adicionou um elemento no cardhtml, pegue os dados dele e salve no localstorage. (Adicione o JSON atualizado no localStorage).
 
-    <h4> 4 Método deletar</h4>
+    <h4> 3.1 Método deletar</h4>
+    - [ ] criar o refreshStorage(), método para atualizar apenas o localStorage a qualquer momento.
+ 
 
-    - [ ] vamos pegar o index do elemento que será deletado
-    - [ ] Remover o elemento da local storage utilizando o index dele pra identifica-lo sem problemas, após remover da localStorage, remova da tela.
-    
+    <h4> 4 Método para atualizar, editar uma tarefa</h4>
 
-    <h4> 5 Método para atualizar, editar uma tarefa</h4>
-
+    - [ ] criar o método listenForChanges() para verificar sempre se está havendo alguma mudança.
+    - [ ] pegar esta mudança e salva-la
     - [ ] dar um jeito de escutar qual elemento está sendo editado (checkbox e label), pegue o index dele em relaçao as outras tasks. use esse index para saber qual elemento ele é na localStorage.
     - [ ] pegue os dados da localStorage, edite e guarde novamente, quando fizermos isso ele só mudara no localStorage, na tela ainda estará igual (pelo menos o checkbox), para resolver isso, devemos pegar esses dados atualizados e atribui-los no elemento manualmente (x = y), utilizando o index do elemento esse index.
+
+
+
+
+   <h4> 5 Método deletar</h4>
+
+    - [X] criar um botão para exluir.
+    - [ ] vamos pegar o index do elemento que será deletado
+    - [ ] Remover o elemento da local storage utilizando o index dele pra identifica-lo sem problemas, após remover da localStorage, remova da tela.
 
 
 
@@ -89,6 +98,9 @@ Cada lista terá:
 <hr>
 
 ## flash ideas
+utilizar o mesmo conceito da função editar, ficar esperando por mudanças,
+se 
+
 verificar se tem elemento em branco na localStorage adicionado via update (editando uma task pra "").
 
 validação

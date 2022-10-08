@@ -101,6 +101,31 @@
     min-width: 40%;
     margin: 5% 0 10% 0;
   }
+  .container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+  }
+  .card{
+    min-height: 100vh;
+  }
 }
 
 
+.removeButton{
+  width: 15px;
+  height: 15px;
+}
+
+.removeButton {
+  visibility: hidden;
+}
+.removeButton:after {
+  content:'DEL'; 
+  color: #ECD6C4;
+  font-weight: 700;
+  visibility: visible;
+  background-color: var(--secondary-red);
+  padding: 2px;
+  border-radius: 3px;
+}

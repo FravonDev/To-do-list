@@ -25,7 +25,7 @@ class Card{
             return false
         }
         
-        // criar e adicionar valores no checkbox .
+        // criar e adicionar valores no checkbox.
         let checkbox = document.createElement('input')
         checkbox.setAttribute('type', 'checkbox')
         checkbox.checked = status
@@ -33,19 +33,30 @@ class Card{
         // criar e adicionar valores na label
         let label = document.createElement('label')
         label.innerText = description;
+
+        //criar um botão para remover uma tarefa.
+        let removeButton = document.createElement('button')
+        removeButton.setAttribute('class', "removeButton")
+        //FIXME:
+        removeButton.setAttribute('onclick', "removeTask(this)")
         
         //criar uma div para agrupar o checkbox e na label.
         let groupTaskElements = document.createElement('div');
+        //adicionar classe
+        groupTaskElements.setAttribute('class', "taskGroup")
 
+        //inserir os elementos na div
         groupTaskElements.append(checkbox)
         groupTaskElements.append(label)
+        groupTaskElements.append(removeButton)
+
 
         /* adicionar os valores em seu respectivo cardHTML, vamos usar o nome do objeto card */
         let cardElement  = document.querySelector(`#${this.name}`)
         cardElement = cardElement.querySelector('.tasks');
         cardElement.append(groupTaskElements)
 
-        //FIXME:
+        //TODO::
         /* depois que colocar os elementos na tela, atualize os dados da localStorage para eliminar
         dados em brancos criados pela edição da tarefa
         para espaço em branco ou tarefa vazia */
@@ -63,8 +74,6 @@ class Card{
             task.status, task.description))
     }
     //3 Método para Guardar novos dados
-
-    //FIXME:
     insertNewTask(){
         //pegar o card atual.
         let currentCard = document.querySelector(`#${this.name}`)
@@ -92,12 +101,26 @@ class Card{
         }
   
     }
-    //4 Métodos secundarios
+    //4 deletar uma task
+
+    //FIXME::
+    // Método para verificar ações nos elementos.
+    listenForChanges(){
+        console.log(this.name)
+        document.querySelector(`#${this.name}`).querySelector('.taskGroup')
+    }
+ 
+    // Métodos secundarios
+    //2.1 validar descrição
     validateDescription(description){
         if(typeof description != 'string' || description.trim() == ""){
             //se for invalida, não faça nada.
             return false;
         }
+    }
+    // função para atualizar o localstorage
+    refreshStorage(){
+        localStorage.setItem(localStorage.setItem(this.name,JSON.stringify(this.tasks)))
     }
 
 }
@@ -114,22 +137,13 @@ mediumCard.loadElements()
 mediumCard.insertNewTask()
 // criar 2 tasks e adicionar no card
 
+mediumCard.listenForChanges()
 
-
-
-
-//Quando o form for enviado, pegue os dados.
-// document.querySelectorAll('.card').forEach(card => {
-//     card.querySelector('.addTask').addEventListener('submit', e => {
-//         e.preventDefault() // remover o redirect padrão do form.
-//         // pegar e guardar o valor do input
-
-//         let inputValue = card.querySelector('input').value
-        
-//         console.log('é'+card.id)
-//     })
-// });
-
-//FIXME:
+//TODO:
+function removeTask(button){
+    //criar uma forma de não repetir código.
+    console.log(button.parentNode.parentNode.parentNode.id)
+    if (button){}
+}
 
 
