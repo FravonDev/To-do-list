@@ -41,7 +41,6 @@ class Card {
     let cardElement = document.querySelector(`#${this.name}`);
     cardElement = cardElement.querySelector(".tasks");
     cardElement.append(groupTaskElements);
-
   }
   // 2 Método de carregar os dados.
   loadElements() {
@@ -59,7 +58,6 @@ class Card {
     let currentCard = document.querySelector(`#${this.name}`);
     let form = currentCard.querySelector(".addTask");
     form.onsubmit = (e) => {
-      
       e.preventDefault();
       let inputValue = currentCard.querySelector(".addTaskInput").value;
       this.tasks.push(new Task(false, inputValue));
@@ -68,44 +66,43 @@ class Card {
     };
   }
 
-//Método para atualizar
-updateTask(index, element) {
-  let tasks = JSON.parse(localStorage.getItem(`${this.name}`));
+  //Método para atualizar
+  updateTask(index, element) {
+    let tasks = JSON.parse(localStorage.getItem(`${this.name}`));
 
-  if (tasks[0].description == undefined){
-    tasks.splice(0,1)
+    if (tasks[0].description == undefined) {
+      tasks.splice(0, 1);
+    }
+
+    tasks[index].status = element.querySelector("input").checked;
+    tasks[index].description = element.querySelector("label").innerText;
+    this.tasks = tasks;
+
+    localStorage.setItem(`${this.name}`, JSON.stringify(tasks));
+    localStorage.setItem(JSON.stringify(`${this.name}`), tasks);
   }
-
-  tasks[index].status = element.querySelector('input').checked
-  tasks[index].description = element.querySelector('label').innerText
-  this.tasks = tasks;
-
-  localStorage.setItem(`${this.name}`, JSON.stringify(tasks));
-  localStorage.setItem(JSON.stringify(`${this.name}`), tasks)
-
-}
 
   // Método para verificar alterações nos elementos.
   listenForChanges() {
     let currentCard = document.querySelector(`#${this.name}`);
-    console.log(`e isso ai`)
+    console.log(`e isso ai`);
 
-    currentCard.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-      checkbox.onclick = (event) => {
+    currentCard
+      .querySelectorAll('input[type="checkbox"]')
+      .forEach((checkbox) => {
+        checkbox.onclick = (event) => {
+          let array = Array.from(checkbox.parentNode.parentNode.children);
+          const index = array.indexOf(checkbox.parentNode);
+          this.updateTask(index, checkbox.parentNode);
+        };
+      });
 
-        let array = Array.from(checkbox.parentNode.parentNode.children);
-        const index = array.indexOf(checkbox.parentNode);
-        this.updateTask(index, checkbox.parentNode);
-      };
-    });
-
-     currentCard.querySelectorAll('label').forEach((label) => {
+    currentCard.querySelectorAll("label").forEach((label) => {
       label.onblur = (event) => {
-
         let array = Array.from(label.parentNode.parentNode.children);
         const index = array.indexOf(label.parentNode);
         console.log(index);
-        console.log(this)
+        console.log(this);
         this.updateTask(index, label.parentNode);
       };
     });
@@ -126,7 +123,7 @@ updateTask(index, element) {
     tasks.splice(index, 1);
     localStorage.setItem(`${this.name}`, JSON.stringify(tasks));
     this.tasks = tasks;
-
+    console.log(element.parentNode.remove())
   }
 
   //2.1 validar descrição
@@ -147,9 +144,8 @@ const shortCard = new Card("shortCard");
 const mediumCard = new Card("mediumCard");
 const longCard = new Card("longCard");
 
-[shortCard, mediumCard, longCard].forEach(card => {
+[shortCard, mediumCard, longCard].forEach((card) => {
   card.loadElements();
   card.insertNewTask();
   card.listenForChanges();
-})
-
+});
