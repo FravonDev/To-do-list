@@ -35,8 +35,7 @@ Cada lista terá:
 - [ ] criar a classe Card
     - [ ] a classe card deverá ter um array de TASKS e um nome.
 
-    <h4>3 criar método de guardar novos dados e chamar o método de imprimir na tela.</h4>
-    - [ ] pegue os dados da tarefa no form primeiro (quando for enviado), a classe cards deverá ter o método de adicionar  os dados no HTML com  o printTask(), logo depois de mostrar os dados no html, salve os dados do card no local storage, ou seja adicionou um elemento no cardhtml, pegue os dados dele e salve no localstorage. (Adicione o JSON atualizado no localStorage).
+    
 
     <h4>1 Método de imprimir os dados na tela do seu respectivo Cardelement</h4>
 
@@ -60,15 +59,24 @@ Cada lista terá:
     - [X] verificar se a descrição é so tipo string, se não está  vazia e se não tem apenas espaços em branco.
     - [X] retornar false se não for valido.
 
-    <h4> 4 Método para atualizar, editar uma tarefa</h4>
+    <h4>3 criar método de guardar novos dados e chamar o método de imprimir na tela.</h4>
+
+    - [X] pegue os dados da tarefa no form primeiro (quando for enviado)
+    - [X] a classe cards deverá ter o método de adicionar  os dados no HTML com  o printTask()
+    - [X] logo depois de mostrar os dados no html, salve os dados do card no local storage, ou seja adicionou um elemento no cardhtml, pegue os dados dele e salve no localstorage. (Adicione o JSON atualizado no localStorage).
+
+    <h4> 4 Método deletar</h4>
+
+    - [ ] vamos pegar o index do elemento que será deletado
+    - [ ] Remover o elemento da local storage utilizando o index dele pra identifica-lo sem problemas, após remover da localStorage, remova da tela.
+    
+
+    <h4> 5 Método para atualizar, editar uma tarefa</h4>
 
     - [ ] dar um jeito de escutar qual elemento está sendo editado (checkbox e label), pegue o index dele em relaçao as outras tasks. use esse index para saber qual elemento ele é na localStorage.
     - [ ] pegue os dados da localStorage, edite e guarde novamente, quando fizermos isso ele só mudara no localStorage, na tela ainda estará igual (pelo menos o checkbox), para resolver isso, devemos pegar esses dados atualizados e atribui-los no elemento manualmente (x = y), utilizando o index do elemento esse index.
 
-    <h4> 5 Método deletar</h4>
 
-    - [ ] vamos pegar o index do elemento que será deletado
-    - [ ] Remover o elemento da local storage utilizando o index dele pra identifica-lo sem problemas, após remover da localStorage, remova da tela.
 
 
 

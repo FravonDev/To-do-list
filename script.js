@@ -17,7 +17,7 @@ class Card{
 
     //métodos
 
-    // Método para imprimir
+    // 1 Método para imprimir
     printTask(status, description){
         // validar se a descrição é valida.
         if (this.validateDescription(description) == false){
@@ -44,13 +44,13 @@ class Card{
         let cardElement  = document.querySelector(`#${this.name}`)
         cardElement = cardElement.querySelector('.tasks');
         cardElement.append(groupTaskElements)
-        
+
         //FIXME:
         /* depois que colocar os elementos na tela, atualize os dados da localStorage para eliminar
         dados em brancos criados pela edição da tarefa
         para espaço em branco ou tarefa vazia */
     }
-    // método de carregar os dados.
+    // 2 Método de carregar os dados.
     loadElements(){
         // pegue as tasks que etão guardadas no localStorage
         let tasks = localStorage.getItem(`${this.name}`)
@@ -62,33 +62,74 @@ class Card{
         this.tasks.forEach(task => this.printTask(
             task.status, task.description))
     }
-    
-    //métodos secundarios
+    //3 Método para Guardar novos dados
+
+    //FIXME:
+    insertNewTask(){
+        //pegar o card atual.
+        let currentCard = document.querySelector(`#${this.name}`)
+        //pegar o form nele
+        let form = currentCard.querySelector('.addTask')
+        /*quando o form for enviado,
+         Pegamos o valor vindo do input text*/
+        form.onsubmit = (e)=>{
+            e.preventDefault()
+            let inputValue = currentCard.querySelector('.addTaskInput').value
+
+
+           console.log(inputValue)
+           console.log(this.tasks)
+
+            //adicionar no array do card.
+            this.tasks.push(new Task(false, inputValue));
+
+            //mostrar a nova tarefa na tela
+            this.printTask(false, inputValue)
+            console.log(this.tasks[this.tasks.length - 1])
+
+            // salvar os dados no localStorage
+            localStorage.setItem(`${this.name}`,JSON.stringify(this.tasks))
+        }
+  
+    }
+    //4 Métodos secundarios
     validateDescription(description){
-        console.log('ta validando')
         if(typeof description != 'string' || description.trim() == ""){
             //se for invalida, não faça nada.
-            console.log('Descrição invalida')
             return false;
         }
     }
 
 }
 
-let mediumCard = new Card('mediumCard')
-// adicionar valores pra serem adicionar quando a pagina carregar.
-let task1 = new Task(true, "Dojyaaan")
-let task2 = new Task(false, "Dirt Deeds Done Dirt Cheap")
-let task3 = new Task(true, "BANKAI!!!")
-let task4 = new Task(true, "")
-let task5 = new Task(true, "zenbonsakura kageyoshi")
+//criar os 3 cards 
+const shortCard = new Card('shortCard');
+const mediumCard = new Card('mediumCard')
+const longCard = new Card('longCard')
 
-let takers = [task1, task2, task3, task4, task5]
-localStorage.setItem('mediumCard', JSON.stringify(takers))
+//carregar os elementos
 mediumCard.loadElements()
 
-
+//testar a função insert new task
+mediumCard.insertNewTask()
 // criar 2 tasks e adicionar no card
 
+
+
+
+
+//Quando o form for enviado, pegue os dados.
+// document.querySelectorAll('.card').forEach(card => {
+//     card.querySelector('.addTask').addEventListener('submit', e => {
+//         e.preventDefault() // remover o redirect padrão do form.
+//         // pegar e guardar o valor do input
+
+//         let inputValue = card.querySelector('input').value
+        
+//         console.log('é'+card.id)
+//     })
+// });
+
+//FIXME:
 
 
