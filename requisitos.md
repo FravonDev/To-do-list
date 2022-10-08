@@ -66,38 +66,45 @@ Cada lista terá:
     - [X] logo depois de mostrar os dados no html, salve os dados do card no local storage, ou seja adicionou um elemento no cardhtml, pegue os dados dele e salve no localstorage. (Adicione o JSON atualizado no localStorage).
 
     <h4> 3.1 Método deletar</h4>
-    - [ ] criar o refreshStorage(), método para atualizar apenas o localStorage a qualquer momento.
+    - [x] criar o refreshStorage(), método para atualizar apenas o localStorage a qualquer momento.
  
 
     <h4> 4 Método para atualizar, editar uma tarefa</h4>
 
+
     - [ ] criar o método listenForChanges() para verificar sempre se está havendo alguma mudança.
-    - [ ] pegar esta mudança e salva-la
+    - [ ] se o evento for acionado no label e no checkbox, então atualiza ambos (como se fossem linkados).
+    - [ ] se o evento for chamado no button delete, pegue o index do elemento em relação as outras tasks.
+
+    - [ ] use esse index para procurar o elemento referente a ele no localStorage e exclua de lá, após isso chame o método de salvar localStorage.
+
+    - [ ] Finalmente, o remova da tela.
+
+    - [ ] pegar esta mudança e salva-la, 
     - [ ] dar um jeito de escutar qual elemento está sendo editado (checkbox e label), pegue o index dele em relaçao as outras tasks. use esse index para saber qual elemento ele é na localStorage.
     - [ ] pegue os dados da localStorage, edite e guarde novamente, quando fizermos isso ele só mudara no localStorage, na tela ainda estará igual (pelo menos o checkbox), para resolver isso, devemos pegar esses dados atualizados e atribui-los no elemento manualmente (x = y), utilizando o index do elemento esse index.
 
-
+    - [ ] quando atualizar/ remover a função tem que chamar a ela mesma (recursion)
 
 
    <h4> 5 Método deletar</h4>
 
     - [X] criar um botão para exluir.
-    - [ ] vamos pegar o index do elemento que será deletado
-    - [ ] Remover o elemento da local storage utilizando o index dele pra identifica-lo sem problemas, após remover da localStorage, remova da tela.
+    - [X] colocar um listener para quando o botão for clicado
+    - [X] pegar o card atual.
+    - [X] pegar os dados no localStorage e remove-los.
+    - [X] vamos pegar o index do elemento que será deletado
+    - [X] Remover o elemento da local storage utilizando o index dele pra identifica-lo sem problemas, após remover da localStorage, remova da tela e atualize as taks no objeto Card.
 
 
 
 
-
-
-
-
-
-
-    
 <hr>
 
 ## flash ideas
+
+entender como ele adiciona pra resolver bug, talvez de pra apenas adicionar no array tasks do Card e pronto.
+
 utilizar o mesmo conceito da função editar, ficar esperando por mudanças,
 se 
 
