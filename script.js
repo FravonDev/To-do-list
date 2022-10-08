@@ -61,11 +61,14 @@ class Card {
       e.preventDefault();
       let inputValue = currentCard.querySelector(".addTaskInput").value;
       this.tasks.push(new Task(false, inputValue));
+      currentCard.querySelector('form').reset()
+
       this.printTask(false, inputValue);
       localStorage.setItem(`${this.name}`, JSON.stringify(this.tasks));
+      this.listenForChanges()
+
     };
   }
-
   //Método para atualizar
   updateTask(index, element) {
     let tasks = JSON.parse(localStorage.getItem(`${this.name}`));
@@ -81,7 +84,6 @@ class Card {
     localStorage.setItem(`${this.name}`, JSON.stringify(tasks));
     localStorage.setItem(JSON.stringify(`${this.name}`), tasks);
   }
-
   // Método para verificar alterações nos elementos.
   listenForChanges() {
     let currentCard = document.querySelector(`#${this.name}`);
@@ -90,7 +92,7 @@ class Card {
     currentCard
       .querySelectorAll('input[type="checkbox"]')
       .forEach((checkbox) => {
-        checkbox.onclick = (event) => {
+        checkbox.onclick = () => {
           let array = Array.from(checkbox.parentNode.parentNode.children);
           const index = array.indexOf(checkbox.parentNode);
           this.updateTask(index, checkbox.parentNode);
@@ -98,7 +100,7 @@ class Card {
       });
 
     currentCard.querySelectorAll("label").forEach((label) => {
-      label.onblur = (event) => {
+      label.onblur = () => {
         let array = Array.from(label.parentNode.parentNode.children);
         const index = array.indexOf(label.parentNode);
         console.log(index);
@@ -110,7 +112,7 @@ class Card {
     currentCard = document.querySelector(`#${this.name}`);
 
     currentCard.querySelectorAll(".removeButton").forEach((element) => {
-      element.onclick = (event) => {
+      element.onclick = () => {
         let array = Array.from(element.parentNode.parentNode.children);
         const index = array.indexOf(element.parentNode);
         console.log(index);
@@ -125,14 +127,13 @@ class Card {
     this.tasks = tasks;
     console.log(element.parentNode.remove())
   }
-
-  //2.1 validar descrição
+  // validar descrição
   validateDescription(description) {
     if (typeof description != "string" || description.trim() == "") {
       return false;
     }
   }
-  // 4 método para atualizar o localstorage
+  // método para atualizar o localstorage
   refreshStorage() {
     localStorage.setItem(
       localStorage.setItem(this.name, JSON.stringify(this.tasks))

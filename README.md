@@ -11,14 +11,14 @@
 # Índice 
 
 * [Índice](#índice)
-* [Descrição do Projeto](#descrição-do-projeto)
+* [Introdução ](#introdução-do-projeto)
 * [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
 * [Acesso ao Projeto](#acesso-ao-projeto)
 * [Tecnologias utilizadas](#técnicas-e-tecnologias-utilizadas)
 * [Conclusão](#conclusão)
 
 
-# descrição do projeto
+# introdução do projeto
 
 
 Projeto feito com javascript para treinar sobre orientação a objetos, persistir os dados, responsividade,
@@ -34,7 +34,7 @@ semântica e elementos customizados com CSS.
 
 # 📁 Acesso ao projeto
 
-Você pode acessar o [código fonte](https://github.com/flavinpv/To-do-list) do projeto inicial ou [baixa-lo](https://github.com/flavinpv/To-do-list/archive/refs/heads/main.zip)
+Você pode ver o projeto [clicando aqui](https://todolist-psi-nine.vercel.app), acessar o [código fonte](https://github.com/flavinpv/To-do-list) do projeto inicial ou [baixa-lo](https://github.com/flavinpv/To-do-list/archive/refs/heads/main.zip)
 
 # 🛠️ Abrir e rodar o projeto
 
