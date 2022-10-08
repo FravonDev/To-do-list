@@ -15,8 +15,6 @@ class Card {
     this.name = name;
   }
 
-  //métodos
-
   // 1 Método para imprimir
   printTask(status, description) {
     // validar se a descrição é valida.
@@ -38,8 +36,6 @@ class Card {
     //criar um botão para remover uma tarefa.
     let removeButton = document.createElement("button");
     removeButton.setAttribute("class", "removeButton");
-    //FIXME:
-    // removeButton.setAttribute('onclick', "removeTask(this)")
 
     //criar uma div para agrupar o checkbox e na label.
     let groupTaskElements = document.createElement("div");
@@ -56,7 +52,7 @@ class Card {
     cardElement = cardElement.querySelector(".tasks");
     cardElement.append(groupTaskElements);
 
-    //TODO::
+    //TODO:
     /* depois que colocar os elementos na tela, atualize os dados da localStorage para eliminar
         dados em brancos criados pela edição da tarefa
         para espaço em branco ou tarefa vazia */
@@ -104,26 +100,62 @@ class Card {
     };
   }
 
+//Método para atualizar
+updateTask(index, element) {
+  let tasks = JSON.parse(localStorage.getItem(`${this.name}`));
+  
   //FIXME:
+  // se a task 1 estiver vazia.
+  if (tasks[0].description == undefined){
+    tasks.splice(0,1)
+  }
+
+  tasks[index].status = element.querySelector('input').checked
+  tasks[index].description = element.querySelector('label').innerText
+  this.tasks = tasks;
+
+  // atualizar localstorage
+  localStorage.setItem(`${this.name}`, JSON.stringify(tasks));
+  localStorage.setItem(JSON.stringify(`${this.name}`), tasks)
+
+}
   // Método para verificar alterações nos elementos.
   listenForChanges() {
+  //TODO:
     //pegar o card (elemento html) referente ao objeto card (objeto).
     let currentCard = document.querySelector(`#${this.name}`);
+    console.log(`e isso ai`)
 
-    //remover
+    //escutar por alteração no checkbox.
+    currentCard.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+      checkbox.onclick = (event) => {
 
-    // colocar eventlistener em todos os botoões remover
+        let array = Array.from(checkbox.parentNode.parentNode.children);
+        const index = array.indexOf(checkbox.parentNode);
+        this.updateTask(index, checkbox.parentNode);
+      };
+    });
+
+     //escutar por alteração no checkbox.
+     currentCard.querySelectorAll('label').forEach((label) => {
+      label.onblur = (event) => {
+
+        let array = Array.from(label.parentNode.parentNode.children);
+        const index = array.indexOf(label.parentNode);
+        console.log(index);
+        console.log(this)
+        this.updateTask(index, label.parentNode);
+      };
+    });
+
+    currentCard = document.querySelector(`#${this.name}`);
+
+    // Remover elementos
     currentCard.querySelectorAll(".removeButton").forEach((element) => {
-      //quando o botão for clicado
       element.onclick = (event) => {
-        //TODO:
-
-        // converter o NodeList em um array e usar o indexOf.
         let array = Array.from(element.parentNode.parentNode.children);
-        // guardar o index do elemento.
         const index = array.indexOf(element.parentNode);
         console.log(index);
-        // se ja temos o index, vamos remover
         this.removeTask(index, element);
       };
     });
@@ -150,7 +182,6 @@ class Card {
     this.listenForChanges;
   }
 
-  // Métodos secundarios
   //2.1 validar descrição
   validateDescription(description) {
     if (typeof description != "string" || description.trim() == "") {
@@ -171,11 +202,11 @@ const shortCard = new Card("shortCard");
 const mediumCard = new Card("mediumCard");
 const longCard = new Card("longCard");
 
-//carregar os elementos
-mediumCard.loadElements();
+//habilitar todos métodos dos objetos
+[shortCard, mediumCard, longCard].forEach(card => {
+  card.loadElements();
+  card.insertNewTask();
+  card.listenForChanges();
 
-mediumCard.insertNewTask();
+})
 
-mediumCard.listenForChanges();
-
-//evento para quando o label for desfocado.
