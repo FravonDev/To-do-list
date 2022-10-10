@@ -12,10 +12,9 @@ class Card {
 
   constructor(name) {
     this.name = name;
-    this.loadMethods()
-
+    this.loadMethods();
   }
-  loadMethods(){
+  loadMethods() {
     this.loadElements();
     this.insertNewTask();
     this.listenForChanges();
@@ -40,11 +39,14 @@ class Card {
     let groupTaskElements = document.createElement("div");
     groupTaskElements.setAttribute("class", "taskGroup");
     groupTaskElements.setAttribute("draggable", "true");
-    groupTaskElements.addEventListener("mouseover", function(){
-      
-      this.prototype.dragAndDrop();
-
-   }.bind(Card))
+    groupTaskElements.addEventListener(
+      "mouseenter",
+      function (e) {
+        //FIXME:
+        // console.log(e);
+        this.prototype.dragAndDrop(e.path[0]);
+      }.bind(Card)
+    );
 
     groupTaskElements.append(checkbox);
     groupTaskElements.append(label);
@@ -145,54 +147,103 @@ class Card {
       return false;
     }
   }
-  // método para atualizar o localstorage
-  refreshStorage() {
-    //TODO:
-    console.log('lets save')
 
+  //TODO:
+  // método para atualizar o localstorage
+  refreshAllTasks() {
+  console.log('VAMOS ATUALIZAR TUDO');
+  let periods = document.querySelectorAll('.period');
+    console.log(periods);
+  periods.forEach(period => {
+    console.log(period);
+  });
+  return 0
+  let period = content.parentNode.parentNode.parentNode.id;
+
+  // get all the values in localStorage
+  let chave = localStorage.getItem(period);
+  //convert to an array separating the values by comma(,)
+
+  for (let i = 0; i < chave.length; i++) {
+    // get the index of the content parent element
+    var ParentIndex = [].indexOf.call(
+      content.parentNode.parentNode.childNodes,
+      content.parentNode
+    );
+    // if index of content element equals to chave index
+    if (i == ParentIndex) {
+      // index of content
+      chave[i] = content.innerText;
+    }
+    localStorage.setItem(period, chave);
+  }
   }
 
-
+  //FIXME:
   // método para arrastar e soltar as tarefas.
-  dragAndDrop() {
-    let cards = document.querySelectorAll(".taskGroup");
-    let tasks = document.querySelectorAll(".tasks");
+  dragAndDrop(element) {
+    // console.log('drag em drop em breve')
+    this.drag(element);
+    // depois de chamar o drag chme o drop
+    this.drop(element);
+    console.log(element);
+  }
 
-    cards.forEach((card) => {
-      console.log(card);
-      card.addEventListener("dragstart", function () {
-        tasks.forEach((task) => task.classList.add("highlight"));
-        console.log("Peguei ",this);
-        this.classList.add("dragging");
-      });
+  //method para arrastar elemento
+  drag(element) {
+    element.ondragstart = function () {
+      console.log("ME SOLTA PORRA!");
+      console.log(element);
+      // quando ele estiver sendo arrastado deve receber a classe is dragging
+      element.classList.add("is-dragging");
 
-      card.addEventListener("dragend", function () {
-        tasks.forEach((task) => task.classList.remove("highlight"));
-        this.classList.remove("dragging");
-        console.log('HAHAHHAHAH');
-      });
-    });
+      // Acenturar a cor do card, de cada card (onde estão as tasks).
+      document.querySelectorAll('.tasks')
+      .forEach( task => task.classList.add('highlight'))
 
-    tasks.forEach((task) => {
+      //quando o elemento parar de ser arrastado
+      element.ondragend = function () {
+        //Remover o efeito de arrastando
+        element.classList.remove("is-dragging");
+        //remover todos os efeitos de disponilidadade
+        document.querySelectorAll('.tasks').forEach( task => task.classList.remove('highlight'))
+      };
+    };
+  }
+  // método para receber o elemento que foi arrastado
+  drop(){
+    //loop por todos os cards
+    document.querySelectorAll('.tasks').forEach((task) => {
+      //receber o card que foi arrastado, é importante ter o preventdafault para poder usar o ondrop.
+       let test = task.addEventListener("dragover", function (e) {
+        //classe para colocar o verde no fundo (de disponibilidade)
+        e.preventDefault()
+        this.classList.add('over')
 
-      task.addEventListener("dragover", function () {
-        const cardBeingDragged = document.querySelector(".dragging");
+        const cardBeingDragged = document.querySelector(".is-dragging");
         this.appendChild(cardBeingDragged);
         
       });
-
+      //remover o background verde
       task.addEventListener("dragleave", function () {
         this.classList.remove("over");
 
+        
       });
       //quando for dropado, salve os elementos.
-      task.addEventListener("drop", function () {
+      task.ondrop = function(){
         this.classList.remove("over");
-        console.log(this)
-        console.log('droped')
-      });
+        console.log('DANCE FOR ME');
+        console.log('droped');
+      //FIXME:
+      
+      }
     });
+
+    this.refreshAllTasks();
   }
+    
+  
 }
 
 const shortCard = new Card("shortCard");
