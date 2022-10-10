@@ -8,7 +8,7 @@ Cada lista terá:
 **nome**
 **tem que ser editavél**
 **suas tarefas (status), se elas estão checkadas ou não e sua descrição**
-- usar o index das tarefas no array para fazer o drag and drop.
+**funcionalidade de arrastar e soltar (drag and drop)**
 **ter uma função para adicionar, remover, atualizar tarefas Na tela e no localStorage** 
 
 **função de adicionar nova lista e de remover alguma.**
@@ -27,17 +27,14 @@ Cada lista terá:
 
     
 
-- [ ] Organizar o que será feito:
-
-- [ ] criar a classe Task
-    - [ ] iniciar o input checkbox como false (poderá e será mudado)
-
-- [ ] criar a classe Card
-    - [ ] a classe card deverá ter um array de TASKS e um nome.
+- [X] Organizar o que será feito:
+- [X] criar a classe Task
+- [X] criar a classe Card
+- [X] a classe card deverá ter um array de TASKS e um nome.
 
     
 
-    <h4>1 Método de imprimir os dados na tela do seu respectivo Cardelement</h4>
+    <h2>1 Método de imprimir os dados na tela do seu respectivo Cardelement</h2>
 
     - [X] deverá receber o checked status(true ou false) e a description
     - [X] adicione os valores no HTMl do seu respectivo card, ou seja se for shortcard(objeto) coloque dentro do shortcard(elementoHTML).
@@ -45,7 +42,7 @@ Cada lista terá:
 
 
 
-    <h4> 2 carregar dados  e chamar o método de imprimir na tela.</h4>
+    <h2> 2 carregar dados  e chamar o método de imprimir na tela.</h2>
 
     - [X] quando a página for carregada, use o método loadElements()
     - [x] criar o método de carregar dados já existentes.
@@ -53,27 +50,22 @@ Cada lista terá:
     - [x] crie o método loadELements(), que pegará os elementos **Deste mesmo card (this)**  na localStorage e colocará cada elemento dentro do elementoCard respectivo, no array tasks, ou seja se for shortcard(objeto) coloque dentro do shortcard(elementoHTML).
     - [x] para cada objeto task, dentro deste array, chame a função adicionar( talvez Imprimir, teste)
 
-    <h4> 2.1 Validar a descrição (Método Secundário) </h4>
+    <h2> 2.1 Validar a descrição (Método Secundário) </h2>
 
     - [X] criar um método para verificar se a string é valida
     - [X] verificar se a descrição é so tipo string, se não está  vazia e se não tem apenas espaços em branco.
     - [X] retornar false se não for valido.
 
-    <h4>3 criar método de guardar novos dados e chamar o método de imprimir na tela.</h4>
+    <h2>3 criar método de guardar novos dados e chamar o método de imprimir na tela.</h2>
 
     - [X] pegue os dados da tarefa no form primeiro (quando for enviado)
     - [X] a classe cards deverá ter o método de adicionar  os dados no HTML com  o printTask()
     - [X] logo depois de mostrar os dados no html, salve os dados do card no local storage, ou seja adicionou um elemento no cardhtml, pegue os dados dele e salve no localstorage. (Adicione o JSON atualizado no localStorage).
 
-    <h4> 3.1 Método deletar</h4>
-    - [x] criar o refreshStorage(), método para atualizar apenas o localStorage a qualquer momento.
+
     
-    <h4>
-        
-    </h4>
 
-    <h4> 4 Método para atualizar, editar uma tarefa</h4>
-
+    <h2> 4 Método para atualizar, editar uma tarefa e chamar método de remover </h2>
 
     - [x] criar o método listenForChanges() para verificar sempre se está havendo alguma mudança.
     - [x] se o evento for acionado no label e no checkbox, então atualiza ambos (como se fossem linkados).
@@ -99,47 +91,35 @@ Cada lista terá:
     - [X] vamos pegar o index do elemento que será deletado
     - [X] Remover o elemento da local storage utilizando o index dele pra identifica-lo sem problemas, após remover da localStorage, remova da tela e atualize as taks no objeto Card.
 
+    <h2>Arrastar e soltar (drag and drop)</h2>
 
+    - [x] quando tiver o mouse over o  drag se inciara, chamara o método drag'n drop
+    - [x] ulizar "elemento.onevent = function" para chamar apenas uma vez.
+    - [ ] quando o elemento estiver sendo arrastado, pegue o index dele.
+    - [ ] quando colocarmos o elemento onde queremos, pegamos a posição que ele está ocupando agora, e então atualizamos, para isso vamos no localStorage e podemos usar o **splice** pra simplismente adicionar na posição que ele está
+    **EXEMPLO:**
 
+    ```
+        como queremos usar o splice:
+        splice(index, 0, item)          
 
+        tasks = [1,2,3,4,5]
+
+        tasks.splice(2, 0, 15)
+
+        o restultado será:
+        [1, 2, 15, 3, 4, 5]
+               ⬆
+        veja que 15 foi inserido no index 2
+
+    ```
+
+    - [ ] verificar se ele está no lugar correto (shortcard mediumcard e longcard)
+
+    <h2> (não utilizado até o momento) refresh storage</h2>
+    - [X] criar o refreshStorage(), método para atualizar apenas o localStorage a qualquer momento.
+
+    <h2>
+<hr>
 <hr>
 
-## flash ideas
-
-entender como ele adiciona pra resolver bug, talvez de pra apenas adicionar no array tasks do Card e pronto.
-
-utilizar o mesmo conceito da função editar, ficar esperando por mudanças,
-se 
-
-verificar se tem elemento em branco na localStorage adicionado via update (editando uma task pra "").
-
-validação
-
-fazer o método, imprimir aceitar argumentos sobre a inserção, alternativa ao array.push() index do elemento que será atualizado, mas deve ter um valor padrão de this.taks.lenght que é o ultimo elemento 
-```
-You want the splice function on the native array object.
-
-arr.splice(index, 0, item);
-will insert item into arr at the specified index
-(deleting 0 items first, that is, it's just an insert).
-
-```
-
-<hr>
-<hr>
-
-
-## dia 2
-
-**adicionar as taks pelo HTML.**
-- [X] as tasks se iniciarão como false
-- [X] fazer uma unica validação para ver se o texto não está vazio.
-- [X] guardar os dados do objeto no localstorage.
-
-## dia 3
-- [X] implementar o método refresh
-- [ ] mostrar dados da localStorage na tela com o metodo refresh.
-<span style="color:green"> *logica por cada dado no array Taks mostre insira este dado no seu respectivo elemento pai*</span>.
-
-**variações**: adicionar novo elemento tem que seguir um fluxo diferente, **exemplo:**
-se a pagina for carregada, adicione todos os elementos da localstorage na tela mas se for um novo elemento

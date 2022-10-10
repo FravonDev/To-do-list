@@ -152,31 +152,12 @@ class Card {
   // método para atualizar o localstorage
   refreshAllTasks() {
   console.log('VAMOS ATUALIZAR TUDO');
-  let periods = document.querySelectorAll('.period');
+  let periods = document.querySelectorAll('.card');
     console.log(periods);
   periods.forEach(period => {
     console.log(period);
   });
-  return 0
-  let period = content.parentNode.parentNode.parentNode.id;
 
-  // get all the values in localStorage
-  let chave = localStorage.getItem(period);
-  //convert to an array separating the values by comma(,)
-
-  for (let i = 0; i < chave.length; i++) {
-    // get the index of the content parent element
-    var ParentIndex = [].indexOf.call(
-      content.parentNode.parentNode.childNodes,
-      content.parentNode
-    );
-    // if index of content element equals to chave index
-    if (i == ParentIndex) {
-      // index of content
-      chave[i] = content.innerText;
-    }
-    localStorage.setItem(period, chave);
-  }
   }
 
   //FIXME:
@@ -186,13 +167,12 @@ class Card {
     this.drag(element);
     // depois de chamar o drag chme o drop
     this.drop(element);
-    console.log(element);
   }
 
   //method para arrastar elemento
   drag(element) {
     element.ondragstart = function () {
-      console.log("ME SOLTA PORRA!");
+      console.log("Estou sendo arrastado!");
       console.log(element);
       // quando ele estiver sendo arrastado deve receber a classe is dragging
       element.classList.add("is-dragging");
@@ -235,12 +215,13 @@ class Card {
         this.classList.remove("over");
         console.log('DANCE FOR ME');
         console.log('droped');
-      //FIXME:
-      
       }
+
+      this.refreshAllTasks();
+
     });
 
-    this.refreshAllTasks();
+    
   }
     
   
