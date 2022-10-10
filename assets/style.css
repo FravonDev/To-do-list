@@ -1,130 +1,71 @@
-/* reset css genérico */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box
-  }
-
-  /* remover estilo dos links */
-  a{
-    all: unset;
-    cursor: pointer;
-  }
-
-  /* estilos globais */
-  /* cores que serão utilizadas */
-  :root{
-    --bg--color:#ECD6C4;
-
-    --yellow-card:#f2f3ab;
-    --blue-card: #a9f1f3;
-    --pink-card: #f89bc5;
-
-    --btn-add-color:#faf6f5;
-    --green-check: #92d293;
-    
-    --secondary-red: #650d18;
-    --secondary-brown: #8E5D52;
-    
-    font-size: 16px;
+html{
+        font-family: 'Nunito';  
 }
-  body{
-    min-width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-
-  }
-
-
-  
-
-
-/* telas menores */
-@media screen and (min-width: 0) and (max-width: 768px) {
-  /* esconder o header e footer */
-  header, footer{
+header, footer{
     display: none;
-  }
-  
-  body{
-    background-color: gray;
-  }
-  
-  /* definir o tamanho do form */
-  /* .addTask{
-    width: 100%;
-    height: 100%;
-  } */
-
 }
-
-
-/* tablets e dispositivos mais largos */
-@media screen and (min-width: 768px) and (max-width:992px){
-    /* esconder o header e footer */
-  header, footer{
-    display: none;
-  }
-  
-  body{
-    background-color: cornflowerblue;
-  }
+body{
+    background-color: #130f0d;
+    color: white;
 }
-
-
-/* telas de desktops */
-@media screen and (min-width: 992px) and (max-width:1200px){
-  body{
-    background-color: darkcyan;
-  }
-}
-
-
-/* telas grandes*/
-@media screen and (min-width: 1200px){
-  body{
-    display: flex;
-    flex-direction: column;
-  }
-  header, footer{
-    height: 100px;
-    background-color: var(--secondary-brown);
-  }
-  main{
-    flex: 1;
-    background-color: var(--bg--color);
-  } 
- .shortCard{
-        
-    min-width: 40%;
-    margin: 5% 0 10% 0;
-  }
-  .container{
-    min-height: 100vh;
+.container{
     display: flex;
     flex-direction: row;
-  }
-  .card{
-    min-height: 100vh;
-  }
+
+}
+.card{
+    background: #141316;
+    border: 1px solid #FD951F11;
+    border-radius: 4px;
+
+}
+.tasks{
+    padding: 16px;
+
+    min-width: 282px;
+    min-height: 200px;
+}
+.taskGroup{
+    padding: 16px;
+    box-shadow: 0 2px 2px -1px #FD951Fcc;
+    width: 250px;
+    margin: 25px 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: #1A1A1C;
+    display: flex;
+    justify-content: space-evenly;
+}
+.taskGroup button{
+    min-height: 12px;
+    width: 12px;
+    border: solid 1px #FD951Fcc;
+    background-color: red;
+    border-radius: 3px;
 }
 
 
-.removeButton{
-  width: 15px;
-  height: 15px;
+
+
+
+
+
+
+/* IMPORTANT: */
+.highlight {
+    background-color: #FD951F08;
 }
 
-.removeButton {
-  visibility: hidden;
+.taskGroup, .tasks {
+    transition: 400ms;
 }
-.removeButton:after {
-  content:'DEL'; 
-  color: #ECD6C4;
-  font-weight: 700;
-  visibility: visible;
-  background-color: var(--secondary-red);
-  padding: 2px;
-  border-radius: 3px;
+
+.is-dragging {
+    cursor: move;
+    opacity: 0.3;
+}
+
+.over {
+    background-color: #4cd13711;
 }

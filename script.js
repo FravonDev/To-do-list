@@ -12,6 +12,13 @@ class Card {
 
   constructor(name) {
     this.name = name;
+    this.loadMethods()
+
+  }
+  loadMethods(){
+    this.loadElements();
+    this.insertNewTask();
+    this.listenForChanges();
   }
   // 1 Método para imprimir
   printTask(status, description) {
@@ -32,6 +39,12 @@ class Card {
 
     let groupTaskElements = document.createElement("div");
     groupTaskElements.setAttribute("class", "taskGroup");
+    groupTaskElements.setAttribute("draggable", "true");
+    groupTaskElements.addEventListener("mouseover", function(){
+      
+      this.prototype.dragAndDrop();
+
+   }.bind(Card))
 
     groupTaskElements.append(checkbox);
     groupTaskElements.append(label);
@@ -61,12 +74,11 @@ class Card {
       e.preventDefault();
       let inputValue = currentCard.querySelector(".addTaskInput").value;
       this.tasks.push(new Task(false, inputValue));
-      currentCard.querySelector('form').reset()
+      currentCard.querySelector("form").reset();
 
       this.printTask(false, inputValue);
       localStorage.setItem(`${this.name}`, JSON.stringify(this.tasks));
-      this.listenForChanges()
-
+      this.listenForChanges();
     };
   }
   //Método para atualizar
@@ -125,7 +137,7 @@ class Card {
     tasks.splice(index, 1);
     localStorage.setItem(`${this.name}`, JSON.stringify(tasks));
     this.tasks = tasks;
-    console.log(element.parentNode.remove())
+    console.log(element.parentNode.remove());
   }
   // validar descrição
   validateDescription(description) {
@@ -135,9 +147,51 @@ class Card {
   }
   // método para atualizar o localstorage
   refreshStorage() {
-    localStorage.setItem(
-      localStorage.setItem(this.name, JSON.stringify(this.tasks))
-    );
+    //TODO:
+    console.log('lets save')
+
+  }
+
+
+  // método para arrastar e soltar as tarefas.
+  dragAndDrop() {
+    let cards = document.querySelectorAll(".taskGroup");
+    let tasks = document.querySelectorAll(".tasks");
+
+    cards.forEach((card) => {
+      console.log(card);
+      card.addEventListener("dragstart", function () {
+        tasks.forEach((task) => task.classList.add("highlight"));
+        console.log("Peguei ",this);
+        this.classList.add("dragging");
+      });
+
+      card.addEventListener("dragend", function () {
+        tasks.forEach((task) => task.classList.remove("highlight"));
+        this.classList.remove("dragging");
+        console.log('HAHAHHAHAH');
+      });
+    });
+
+    tasks.forEach((task) => {
+
+      task.addEventListener("dragover", function () {
+        const cardBeingDragged = document.querySelector(".dragging");
+        this.appendChild(cardBeingDragged);
+        
+      });
+
+      task.addEventListener("dragleave", function () {
+        this.classList.remove("over");
+
+      });
+      //quando for dropado, salve os elementos.
+      task.addEventListener("drop", function () {
+        this.classList.remove("over");
+        console.log(this)
+        console.log('droped')
+      });
+    });
   }
 }
 
@@ -145,8 +199,3 @@ const shortCard = new Card("shortCard");
 const mediumCard = new Card("mediumCard");
 const longCard = new Card("longCard");
 
-[shortCard, mediumCard, longCard].forEach((card) => {
-  card.loadElements();
-  card.insertNewTask();
-  card.listenForChanges();
-});
