@@ -67,24 +67,27 @@ Cada lista terá:
 
     <h4> 3.1 Método deletar</h4>
     - [x] criar o refreshStorage(), método para atualizar apenas o localStorage a qualquer momento.
- 
+    
+    <h4>
+        
+    </h4>
 
     <h4> 4 Método para atualizar, editar uma tarefa</h4>
 
 
-    - [ ] criar o método listenForChanges() para verificar sempre se está havendo alguma mudança.
-    - [ ] se o evento for acionado no label e no checkbox, então atualiza ambos (como se fossem linkados).
-    - [ ] se o evento for chamado no button delete, pegue o index do elemento em relação as outras tasks.
+    - [x] criar o método listenForChanges() para verificar sempre se está havendo alguma mudança.
+    - [x] se o evento for acionado no label e no checkbox, então atualiza ambos (como se fossem linkados).
+    - [x] se o evento for chamado no button delete, pegue o index do elemento em relação as outras tasks.
 
-    - [ ] use esse index para procurar o elemento referente a ele no localStorage e exclua de lá, após isso chame o método de salvar localStorage.
+    - [X] use esse index para procurar o elemento referente a ele no localStorage e exclua de lá, após isso chame o método de salvar localStorage.
 
-    - [ ] Finalmente, o remova da tela.
+    - [X] Finalmente, o remova da tela.
 
-    - [ ] pegar esta mudança e salva-la, 
-    - [ ] dar um jeito de escutar qual elemento está sendo editado (checkbox e label), pegue o index dele em relaçao as outras tasks. use esse index para saber qual elemento ele é na localStorage.
-    - [ ] pegue os dados da localStorage, edite e guarde novamente, quando fizermos isso ele só mudara no localStorage, na tela ainda estará igual (pelo menos o checkbox), para resolver isso, devemos pegar esses dados atualizados e atribui-los no elemento manualmente (x = y), utilizando o index do elemento esse index.
+    - [X] pegar esta mudança e salva-la, 
+    - [X] dar um jeito de escutar qual elemento está sendo editado (checkbox e label), pegue o index dele em relaçao as outras tasks. use esse index para saber qual elemento ele é na localStorage.
+    - [X] pegue os dados da localStorage, edite e guarde novamente, quando fizermos isso ele só mudara no localStorage, na tela ainda estará igual (pelo menos o checkbox), para resolver isso, devemos pegar esses dados atualizados e atribui-los no elemento manualmente (x = y), utilizando o index do elemento esse index.
 
-    - [ ] quando atualizar/ remover a função tem que chamar a ela mesma (recursion)
+    - [X] quando atualizar/ remover a função tem que chamar a ela mesma (recursion)
 
 
    <h4> 5 Método deletar</h4>
