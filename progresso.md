@@ -95,8 +95,9 @@ Cada lista terá:
 
     - [x] quando tiver o mouse over o  drag se inciara, chamara o método drag'n drop
     - [x] ulizar "elemento.onevent = function" para chamar apenas uma vez.
-    - [ ] quando o elemento estiver sendo arrastado, pegue o index dele.
-    - [ ] quando colocarmos o elemento onde queremos, pegamos a posição que ele está ocupando agora, e então atualizamos, para isso vamos no localStorage e podemos usar o **splice** pra simplismente adicionar na posição que ele está
+    - [X] quando o elemento estiver sendo arrastado, pegue o index dele.
+    - [X] verificar se ele está no lugar correto (shortcard mediumcard e longcard)
+    - [X] quando colocarmos o elemento onde queremos, pegamos a posição que ele está ocupando agora, e então atualizamos, para isso vamos no localStorage e podemos usar o **splice** pra simplismente adicionar na posição que ele está
     **EXEMPLO:**
 
     ```
@@ -113,13 +114,6 @@ Cada lista terá:
         veja que 15 foi inserido no index 2
 
     ```
-
-    - [ ] verificar se ele está no lugar correto (shortcard mediumcard e longcard)
-
-    <h2> (não utilizado até o momento) refresh storage</h2>
-    - [X] criar o refreshStorage(), método para atualizar apenas o localStorage a qualquer momento.
-
-    <h2>
 <hr>
 <hr>
 
