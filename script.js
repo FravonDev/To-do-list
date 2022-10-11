@@ -42,7 +42,6 @@ class Card {
     groupTaskElements.addEventListener(
       "mouseenter",
       function (e) {
-   
         this.prototype.dragAndDrop(e.path[0]);
       }.bind(Card)
     );
@@ -101,7 +100,6 @@ class Card {
   // Método para verificar alterações nos elementos.
   listenForChanges() {
     let currentCard = document.querySelector(`#${this.name}`);
-    // console.log(`e isso ai`);
 
     currentCard
       .querySelectorAll('input[type="checkbox"]')
@@ -117,8 +115,6 @@ class Card {
       label.onblur = () => {
         let array = Array.from(label.parentNode.parentNode.children);
         const index = array.indexOf(label.parentNode);
-        console.log(index);
-        console.log(this);
         this.updateTask(index, label.parentNode);
       };
     });
@@ -129,7 +125,6 @@ class Card {
       element.onclick = () => {
         let array = Array.from(element.parentNode.parentNode.children);
         const index = array.indexOf(element.parentNode);
-        console.log(index);
         this.removeTask(index, element);
       };
     });
@@ -139,6 +134,7 @@ class Card {
     tasks.splice(index, 1);
     localStorage.setItem(`${this.name}`, JSON.stringify(tasks));
     this.tasks = tasks;
+    //FIXME:
     console.log(element.parentNode.remove());
   }
   // validar descrição
@@ -147,86 +143,24 @@ class Card {
       return false;
     }
   }
-
-
-  // método para atualizar o localstorage
-  refreshAllTasks() {
-    log('vamo mudar tudo')
-    return 0;
-
-    let period;
-    console.log("VAMOS ATUALIZAR TUDO");
-    let periods = document.querySelectorAll(".card");
-
-    periods.forEach((period) => {
-      period = period.id;
-      console.log(period);
-    });
-
-    period = content.parentNode.parentNode.parentNode.id;
-
-    // get all the values in localStorage
-    let chave = localStorage.getItem(period);
-    //convert to an array separating the values by comma(,)
-
-    for (let i = 0; i < chave.length; i++) {
-      // get the index of the content parent element
-      var ParentIndex = [].indexOf.call(
-        content.parentNode.parentNode.childNodes,
-        content.parentNode
-      );
-      // if index of content element equals to chave index
-      if (i == ParentIndex) {
-        // index of content
-        chave[i] = content.innerText;
-      }
-      localStorage.setItem(period, chave);
-    }
-  }
-
-  //FIXME:
   // método para arrastar e soltar as tarefas.
   dragAndDrop(element) {
-    let cards = [shortCard, mediumCard, longCard]
+    let cards = [shortCard, mediumCard, longCard];
     element.ondragstart = function () {
-      console.log("Estou sendo arrastado!");
-      console.log(element);
-
       //pegar o index do elemento, na posição original.
+      //index antes
+      let array = Array.from(element.parentNode.children);
+      const indexBefore = array.indexOf(element);
 
-      //é isso
-      //TODO:
-        //index antes
-        let array = Array.from(element.parentNode.children);
-        const indexBefore = array.indexOf(element);
-        console.log(indexBefore);
-
-        //verificar de qual card retirar a tarefa (recortar).
-        let cardElement = element.parentNode.parentNode
-        for(let card of cards) if(card.name == cardElement.id){
+      //verificar de qual card retirar a tarefa (recortar).
+      let cardElement = element.parentNode.parentNode;
+      for (let card of cards)
+        if (card.name == cardElement.id) {
           //retirar do objeto e guarda-lo
-          const dragging = card.tasks.splice(indexBefore,1)
-          console.log('saiu do card');
-          console.log(card)
-          console.log('sou o dragging');
-          console.log(dragging)
-
+          const dragging = card.tasks.splice(indexBefore, 1);
           //atualizar o json com a task retirada.
-          console.log('storage:');
-          localStorage.setItem(card.name, JSON.stringify(card.tasks))
-          console.log(JSON.parse(localStorage.getItem(card.name)));
+          localStorage.setItem(card.name, JSON.stringify(card.tasks));
         }
-      //é isso
-
-      
-      console.log(indexBefore);
-      //FIXME:
-      //verificar em qual card está
-      console.log(element.parentNode.parentNode.id)
-      //usar o id para atualizar na localStorage e no card
-      console.log(this);
-
-
       // quando ele estiver sendo arrastado deve receber a classe is dragging
       element.classList.add("is-dragging");
 
@@ -240,30 +174,24 @@ class Card {
         //index final
         let array = Array.from(element.parentNode.children);
         const indexAfter = array.indexOf(element);
-        console.log(indexBefore);
-        console.log(indexAfter);
-        
         //verificar  qual card vai receber o valor.
-        let cardElement = element.parentNode.parentNode
-        for(let card of cards) if(card.name == cardElement.id){
-          //retirar do objeto e guarda-lo
-          let dragging = new Task(element.querySelector('input').checked, element.querySelector('label').innerText);
+        let cardElement = element.parentNode.parentNode;
+        for (let card of cards)
+          if (card.name == cardElement.id) {
+            //retirar do objeto e guarda-lo
+            let dragging = new Task(
+              element.querySelector("input").checked,
+              element.querySelector("label").innerText
+            );
 
-          card.tasks.splice(indexAfter, 0 , dragging)
-          console.log('Card atualizado:');
-          console.log(card.tasks)
-
-          console.log(dragging)
-
-          //atualizar o json com a task retirada.
-          console.log('storage:');
-          localStorage.setItem(card.name, JSON.stringify(card.tasks))
-          console.log(JSON.parse(localStorage.getItem(card.name)));
-        }
+            card.tasks.splice(indexAfter, 0, dragging);
+            //atualizar o json com a task retirada.
+            localStorage.setItem(card.name, JSON.stringify(card.tasks));
+          }
 
         //Remover o efeito de arrastando
         element.classList.remove("is-dragging");
-        
+
         //remover todos os efeitos de disponilidadade
         document
           .querySelectorAll(".tasks")
@@ -287,21 +215,10 @@ class Card {
         //quando for dropado, salve os elementos.
         task.ondrop = function () {
           this.classList.remove("over");
-          console.log("DANCE FOR ME");
-          console.log("droped");
         };
-
-        // this.refreshAllTasks();
       });
     };
   }
-
-  //method para arrastar elemento
-  drag(element) {
-    
-  }
-
-  drop() {}
 }
 
 const shortCard = new Card("shortCard");
