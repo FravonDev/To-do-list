@@ -3,126 +3,208 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto Mono", sans-serif;
+
 }
 /* remover estilo dos links */
-a{
+a {
   all: unset;
   cursor: pointer;
 }
 
-
 /* cores que serão utilizadas */
-:root{
-  --bg--color:#ECD6C4;
+:root {
+  --bg--color: #ecd6c4;
   --bg-brown: #2f2325;
 
-  --yellow-card:#f2f3ab;
+  --yellow-card: #f2f3ab;
   --blue-card: #a9f1f3;
-  --pink-card: #f89bc5;
+  --pink-card: #f8bbd0;
 
-  --white-color:#faf6f5;
-  --green-check: #92d293;
-  
+  --white-color: #faf6f5;
+  --green-check: #5fbe61;
+
   --secondary-red: #650d18;
-  --secondary-brown: #8E5D52;
-  
+  --secondary-brown: #8e5d52;
+
   font-size: 16px;
 }
-body{
+body {
   display: flex;
   flex-direction: column;
+  color: #000;
+
 }
+
+/* Menu responsivo */
+
+header {
+  background-color: var(--bg--color);
+  box-shadow: 0px 3px 10px #464646;
+  position: relative;
+  top: 0;
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 6rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-direction: row;
+
+}
+.nav-item {
+  margin: 0 .7rem;
+}
+.nav-link {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 400;
+
+}
+.mobile-menu-icon{
+  display: none;
+}
+.mobile-menu{
+  display: none;
+}
+
 
 /* telas menores */
 @media screen and (min-width: 0) and (max-width: 768px) {
-/* esconder o header e footer */
-/* TODO: */
 
-header, footer{
-  display: none;
-}
-
-body{
-  background-color: var(--white-color);
-  font-size: 18px;
-  font-family: 'Roboto Mono', monospace;
-
-}
-
-main{
-  min-width: 100%;
-  min-height: 100%;
-  height: 100vh;
-  /* dar scroll para a proxima section */
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-/* Esconder a barra de scroll no Chrome, Safarie Opera */
-main::-webkit-scrollbar {
-  display: none;
-}
-
-
-
-
-.card{
-  display: flex;
-  flex-direction: column;
-
-  padding: 3vw;
-  background-color: rebeccapurple;
-  height: 100vh;
-  max-height: 100vh;
-  border: 1px solid black;
-
-  scroll-snap-align: start;
-}
-
-/* onde estão todas as tarefas */
-.tasks{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2vh;
-  overflow: hidden;
-
-}
-
-/* estilo para cada task */
-.taskGroup{
-  display: flex;
-  flex-direction: row;
-  color: black;
-  padding: 3vh;
-  box-shadow: 0 2px 2px -1px #FD951Fcc;
-  border-radius: 4px;
-  font-weight: 600;
-  background-color: var(--pink-card);
-  justify-content: space-between;
-  gap: 5%;
-  align-items: center;
-  text-align: start;
-  font-size: 1.5rem;  
-
+  /* estilos para os items do menu hamburguer */
+  /* FIXME: */
+  .nav-bar{
+    padding: 1rem 2.6rem;
+  }
+  .nav-item{
+    display: none;
+  }
+  .mobile-menu-icon{
+    display: block;
+  }
+  .mobile-menu-icon button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .mobile-menu ul{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  .mobile-menu .nav-item{
+    display: block;
+    padding: 1rem 2rem;
+    
+  }
+  .open{
+    display: block;
   }
   
+  
+  body {
+    background-color: var(--white-color);
+    font-size: 18px;
+    font-family: "Roboto Mono", sans-serif;
+  }
+
+  main {
+    height: calc(100vh - 80px);
+
+    /* dar scroll para a proxima section */
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+  /* Esconder a barra de scroll  (Chrome, Safarie Opera) */
+  main::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+
+    padding: 3vw;
+    background-color: var(--bg-brown);
+
+    
+    height:100vh;
+    max-height: 100%;
+    border: 1px solid black;
+
+    scroll-snap-align: start;
+  }
+
+  /* onde estão todas as tarefas */
+  .tasks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+
+    overflow-y: scroll;
+  }
+  .tasks::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* estilo para cada task */
+  .taskGroup {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    padding: 5%;
+    box-shadow: 0 4px 4px -1px #1a1919cc;
+    border-radius: 4px;
+    font-weight: 600;
+    justify-content: space-between;
+    gap: 5%;
+    align-items: center;
+    text-align: start;
+    font-size: 1.125rem;
+  }
+  .taskGroup:nth-child(1){
+    background-color: var(--pink-card);
+  }
+  .taskGroup:nth-child(2){
+    background-color: var(--blue-card);
+
+  }
+  .taskGroup:nth-child(3){
+    background-color: var(--yellow-card);
+
+  }
+
   /* esconder o texto se ele for ultrapassar seu elemento pai */
-  .taskGroup label{
+  .taskGroup label {
     overflow: hidden;
     display: -webkit-box;
     max-width: 80%;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
-  .taskGroup input[type="checkbox"]{
-    min-width: 35px;
-    min-height: 35px;
+  .taskGroup input[type="checkbox"] {
+    min-width: 30px;
+    min-height: 30px;
   }
 
-  .taskGroup button{
-    width: 35px;
-    height: 35px;
+  .taskGroup button {
+    width: 30px;
+    height: 30px;
     background: none;
 
     color: inherit;
@@ -133,224 +215,218 @@ main::-webkit-scrollbar {
   }
 
   /* colocar o icone no botão */
-  .taskGroup button::before{
-    background-image: url('/assets/static/img/delete.png');
-    background-size: 35px 35px;
+  .taskGroup button::before {
+    background-image: url("/assets/static/img/delete.png");
+    background-size: 30px 30px;
     display: inline-block;
-    width: 35px; 
-    height: 35px;
-    content:"";
+    width: 30px;
+    height: 30px;
+    content: "";
   }
 
   /* campo adicionar */
-  .addTask{
-    margin-top: 2%;
+  .addTask {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    gap: 1vw;
+
     width: 100%;
     height: 60px;
     max-height: 20%;
     max-width: 100%;
-    justify-content: space-between;
-    gap: 1vw;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    
+
   }
-  .addTask input{
+  .addTask input {
     border: 1px solid black;
     border-radius: 2px;
     width: 85%;
     height: 100%;
   }
-  .addTask button{
+  .addTask button {
     background-color: var(--blue-card);
     border: none;
-    flex:1;
+    flex: 1;
     max-width: 15%;
     border-radius: 2px;
 
     cursor: pointer;
-    font-family: 'Berkshire Swash', cursive;
+    font-family: "Berkshire Swash", cursive;
 
-    box-shadow: 7px 3px 14px -6px rgba(0,0,0,0.75);
-
+    box-shadow: 7px 3px 14px -6px rgba(0, 0, 0, 0.75);
   }
- 
-  
-
-
+  footer{
+    display: none;
+  }
 }
+
 
 /* tablets e dispositivos mais largos */
-@media screen and (min-width: 768px) and (max-width:992px){
+@media screen and (min-width: 768px) and (max-width: 992px) {
   /* esconder o header e footer */
 
-header, footer{
-  display: none;
+
+  body {
+    background-color: cornflowerblue;
+  }
 }
-body{
-  background-color: cornflowerblue;
-}
-
-
-
-
-}
-
 
 /* telas de desktops */
-@media screen and (min-width: 992px) and (max-width:1200px){
-body{
-  background-color: darkcyan;
-}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  body {
+    background-color: darkcyan;
+  }
 }
 /* telas grandes*/
-@media screen and (min-width: 1200px){
-body{
-  display: flex;
-  flex-direction: column;
-}
-header, footer{
-  background-color: var(--bg--color);
-}
-header{
-  width: 100%;
-  height: 50px;
-
-  /* organizar os items do header */
-}
-
-footer{
-  height: 40px;
-  width: 100%;
-  background-color:#FFF2E7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-main{
-  flex: 1;
-  background-color: var(--bg-brown);
-}
-.container{
-  display: flex;
-  flex-direction: row;
-  gap: 3%;
-  justify-content: center;
-} 
-#shortCard{
-  background-color: var(--pink-card);
-}
-#mediumCard{
-  background-color: var(--blue-card);
-}
-#longCard{
-  background-color: var(--yellow-card);
-}
-
-.card{
-  border: 1px solid #FD951F11;
-  border-radius: 4px;
-  width: 30vw;
-  max-width: 500px;
-  max-height: 1000px;
-}
-
-  .tasks{
-  padding: 16px;
-  min-width: 282px;
-  min-height: 200px;
+@media screen and (min-width: 1200px) {
+  body {
+    display: flex;
+    flex-direction: column;
   }
-  .taskGroup{
-  padding: 16px;
-  box-shadow: 0 2px 2px -1px #FD951Fcc;
-  margin: 10px 0;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 18px;
-  background-color: var(--pink-card);
-  display: flex;
-  justify-content: space-evenly;
+  header,
+  footer {
+    background-color: var(--bg--color);
   }
-  .taskGroup button{
-  min-height: 12px;
-  width: 12px;
-  border: solid 1px #FD951Fcc;
-  background-color: red;
-  border-radius: 3px;
-  }
-  
-}
+  header {
+    width: 100%;
+    height: 50px;
 
+    /* organizar os items do header */
+  }
+
+  footer {
+    height: 40px;
+    width: 100%;
+    background-color: #fff2e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    flex: 1;
+    background-color: var(--bg-brown);
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    justify-content: center;
+  }
+  #shortCard {
+    background-color: var(--pink-card);
+  }
+  #mediumCard {
+    background-color: var(--blue-card);
+  }
+  #longCard {
+    background-color: var(--yellow-card);
+  }
+
+  .card {
+    border: 1px solid #fd951f11;
+    border-radius: 4px;
+    width: 30vw;
+    max-width: 500px;
+    max-height: 1000px;
+  }
+
+  .tasks {
+    padding: 16px;
+    min-width: 282px;
+    min-height: 200px;
+  }
+  .taskGroup {
+    padding: 16px;
+    box-shadow: 0 2px 2px -1px #fd951fcc;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: var(--pink-card);
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .taskGroup button {
+    min-height: 12px;
+    width: 12px;
+    border: solid 1px #fd951fcc;
+    background-color: red;
+    border-radius: 3px;
+  }
+}
 
 /* FIXME: */
 /* efeitos do drag and drop */
 .highlight {
-  background-color: #FD951F08;
-  }
-  
-  .taskGroup, .tasks {
-  transition: 400ms;
-  }
-  
-  .is-dragging {
-  cursor: move;
-  opacity: 0.3;
-  background-color: #ECD6C4;
-  }
-  
-  .over {
-  background-color: #ff7da922;
-  }
-
-  /* custom checkbox */
-  input[type="text"], ::placeholder{
-    font-family: 'Berkshire Swash', cursive;
-    font-size: 16px;
-
+  background-color: #fd951f08;
 }
 
+.taskGroup,
+.tasks {
+  transition: 400ms;
+}
+
+.is-dragging {
+  cursor: move;
+  opacity: 0.3;
+  background-color: #ecd6c4;
+}
+
+.over {
+  background-color: #ff7da922;
+}
+
+/* custom checkbox */
+input[type="text"],
+::placeholder {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 16px;
+}
 
 .checkboxGroup label {
-    align-self: center;
+  align-self: center;
 }
 /* custom checkbox */
 input[type="checkbox"] {
-    cursor: pointer;
-    appearance: none;
-    min-width: 30px;
-    min-height: 30px;
-    border: 3px solid black;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-    align-self: center;
-  }
-  
-  input[type="checkbox"] {
-    border-radius: 10px;
-  }
-  
- input[type="checkbox"]:before {
-    content: "\2714";
-    color: var(--green-check);
-    font-size: 30px;
-    width: 20px;
-    height: 50px;
-    background: transparent;
-    opacity: 0;
-    transition: all 300ms ease-in-out;
-    position: absolute;
-  }
+  cursor: pointer;
+  appearance: none;
+  min-width: 30px;
+  min-height: 30px;
+  border: 3px solid black;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  align-self: center;
+}
 
-  
-   input[type="checkbox"]:checked:before {
-    opacity: 1;
-  }
-  
-  input[type="checkbox"]:focus {
-    box-shadow: 0 0 5px var(--green-check);
-  }
+input[type="checkbox"] {
+  border-radius: 10px;
+}
+
+input[type="checkbox"]:before {
+  content: "\2714";
+  color: var(--green-check);
+  font-size: 30px;
+  width: 20px;
+  height: 50px;
+  background: transparent;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  position: absolute;
+}
+
+input[type="checkbox"]:checked:before {
+  opacity: 1;
+}
+
+input[type="checkbox"]:focus {
+  box-shadow: 0 0 5px var(--green-check);
+}

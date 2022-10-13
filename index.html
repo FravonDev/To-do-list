@@ -12,24 +12,39 @@
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">  </head>
+    
   <body>
     <header class="header">
-      <nav>
-        <a href="/">To-do</a>
-        <ul>
-          <li><a href="">Ajuda</a></li>
-          <li><a href="">GitHub</a></li>
-          <li><a href="">Linkedin</a></li>
-          <li><a href="">Sobre</a></li>
+      <nav class="nav-bar">
+        <div class="logo">
+          <a href="/" id="logo">Logo</a>
+
+        </div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="" class="nav-link">Ajuda</a></li>
+          <li class="nav-item"><a href="" class="nav-link">GitHub</a></li>
+          <li class="nav-item"><a href="" class="nav-link">Linkedin</a></li>
+          <li class="nav-item"><a href="" class="nav-link">Sobre</a></li>
         </ul>
+        <div class="mobile-menu-icon">
+          <button onclick="showMenu()"><img class="icon" src="assets/static/img/open_menu.svg" alt="icon" ></button>
+        </div>
       </nav>
+      <div class="mobile-menu">
+        <ul class="nav-list-2">
+          <li class="nav-item"><a href="" class="nav-link">Ajuda</a></li>
+          <li class="nav-item"><a href="" class="nav-link">GitHub</a></li>
+          <li class="nav-item"><a href="" class="nav-link">Linkedin</a></li>
+          <li class="nav-item"><a href="" class="nav-link">Sobre</a></li>
+        </ul>
+      </div>
     </header>
 
     <main class="container">
       <section id="shortCard" class="card">
         <div class="tasks"></div>
         <form class="addTask">
-          <input id="inputShortCard" type="text" class="addTaskInput" />
+          <input id="inputShortCard" type="text" class="addTaskInput" autocomplete="off"/>
           <button type="submit">+</button>
         </form>
       </section>
@@ -37,7 +52,7 @@
       <section id="mediumCard" class="card">
         <div class="tasks"></div>
         <form class="addTask">
-          <input id="inputMediumCard" type="text" class="addTaskInput" />
+          <input id="inputMediumCard" type="text" class="addTaskInput" autocomplete="off"/>
           <button type="submit">+</button>
         </form>
       </section>
@@ -45,7 +60,7 @@
       <section id="longCard" class="card">
         <div class="tasks"></div>
         <form class="addTask">
-          <input id="inputLongCard" type="text" class="addTaskInput" />
+          <input id="inputLongCard" type="text" class="addTaskInput" autocomplete="off"/>
           <button type="submit">+</button>
         </form>
       </section>

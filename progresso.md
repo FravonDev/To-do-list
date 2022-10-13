@@ -122,12 +122,15 @@ Cada lista terá:
 ###Criar o Responsive Design
 **vamos utilizar mobile first, ou seja, vamos começar a desenvolver para dispositivos Móveis e depois para tablets e desktops**
 
+##  em comum entre todas as telas:
+- [ ] menu hamburguer responsivo 
+
+
 ## estilo para telas menores que  768px
 - para dispositivos menores, escolhi a fonte Roboto, por ser legivel até mesmo em locais com pouca luz,  trazer clareza para as letras e ainda é minimalista.
 
 - limitei o número maximo de tarefas mostradas na tela para 6.
 
-- 
 
     
 <hr>

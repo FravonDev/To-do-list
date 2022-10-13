@@ -227,6 +227,17 @@ const longCard = new Card("longCard");
 
 
 
-//scripts de estilo
+// Estilo
+function showMenu(){
+  console.log('to ai');
+  let menuMobile = document.querySelector('.mobile-menu');
+  if (menuMobile.classList.contains('open')) {
+    menuMobile.classList.remove('open')
+    document.querySelector('.icon').src = "assets/static/img/open_menu.svg";
 
+  }else{
+    menuMobile.classList.add('open')
+    document.querySelector('.icon').src = "assets/static/img/close_menu.svg";
 
+  }
+}
