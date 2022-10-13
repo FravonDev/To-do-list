@@ -229,7 +229,6 @@ const longCard = new Card("longCard");
 
 // Estilo
 function showMenu(){
-  console.log('to ai');
   let menuMobile = document.querySelector('.mobile-menu');
   if (menuMobile.classList.contains('open')) {
     menuMobile.classList.remove('open')
