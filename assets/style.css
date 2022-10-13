@@ -222,7 +222,7 @@ header {
   }
   /* colocar o icone no botão */
   .taskGroup button::before {
-    background-image: url("./assets/static/img/delete.png");
+    background-image: url("https://flavinpv.github.io/To-do-list/assets/static/img/delete.png");
     background-size: 30px 30px;
     display: inline-block;
     width: 30px;
