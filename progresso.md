@@ -33,7 +33,6 @@ Cada lista terá:
 - [X] a classe card deverá ter um array de TASKS e um nome.
 
     
-
     <h2>1 Método de imprimir os dados na tela do seu respectivo Cardelement</h2>
 
     - [X] deverá receber o checked status(true ou false) e a description
@@ -114,6 +113,23 @@ Cada lista terá:
         veja que 15 foi inserido no index 2
 
     ```
+##  REFATORAR
+- [ ] refatorar o código.
+   
+
+#CSS
+
+###Criar o Responsive Design
+**vamos utilizar mobile first, ou seja, vamos começar a desenvolver para dispositivos Móveis e depois para tablets e desktops**
+
+## estilo para telas menores que  768px
+- para dispositivos menores, escolhi a fonte Roboto, por ser legivel até mesmo em locais com pouca luz,  trazer clareza para as letras e ainda é minimalista.
+
+- limitei o número maximo de tarefas mostradas na tela para 6.
+
+- 
+
+    
 <hr>
 <hr>
 
