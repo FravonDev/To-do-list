@@ -34,7 +34,7 @@ semântica e elementos customizados com CSS.
 
 # 📁 Acesso ao projeto
 
-Você pode ver o projeto [clicando aqui](https://todolist-psi-nine.vercel.app), acessar o [código fonte](https://github.com/flavinpv/To-do-list) do projeto inicial ou [baixa-lo](https://github.com/flavinpv/To-do-list/archive/refs/heads/main.zip)
+Você pode ver o projeto [clicando aqui](https://flavinpv.github.io/To-do-list/), acessar o [código fonte](https://github.com/flavinpv/To-do-list) do projeto inicial ou [baixa-lo](https://github.com/flavinpv/To-do-list/archive/refs/heads/main.zip)
 
 # 🛠️ Abrir e rodar o projeto
 
