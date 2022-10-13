@@ -50,9 +50,21 @@ body{
 }
 
 main{
-  max-width: 100%;
-  max-height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  height: 100vh;
+  /* dar scroll para a proxima section */
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
+/* Esconder a barra de scroll no Chrome, Safarie Opera */
+main::-webkit-scrollbar {
+  display: none;
+}
+
+
+
 
 .card{
   display: flex;
@@ -64,7 +76,9 @@ main{
   max-height: 100vh;
   border: 1px solid black;
 
+  scroll-snap-align: start;
 }
+
 /* onde estão todas as tarefas */
 .tasks{
   flex: 1;

@@ -230,4 +230,3 @@ const longCard = new Card("longCard");
 //scripts de estilo
 
 
-
