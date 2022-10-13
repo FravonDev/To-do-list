@@ -21,7 +21,7 @@
 # introdução do projeto
 
 
-Projeto feito com javascript para treinar sobre orientação a objetos, persistir os dados, responsividade,
+Projeto feito com HTML, CSS e JavaScript para treinar sobre orientação a objetos, persistir os dados, responsividade,
 semântica e elementos customizados com CSS.
 
 # 🔨 Funcionalidades e Demonstração da Aplicação

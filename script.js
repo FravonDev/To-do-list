@@ -86,9 +86,9 @@ class Card {
     let tasks = JSON.parse(localStorage.getItem(`${this.name}`));
     // FIXME:
     //verificar
-    // if (tasks[0].description == undefined) {
-    //   tasks.splice(0, 1);
-    // }
+    if (tasks[0].description == undefined) {
+      tasks.splice(0, 1);
+    }
 
     tasks[index].status = element.querySelector("input").checked;
     tasks[index].description = element.querySelector("label").innerText;
@@ -224,3 +224,10 @@ class Card {
 const shortCard = new Card("shortCard");
 const mediumCard = new Card("mediumCard");
 const longCard = new Card("longCard");
+
+
+
+//scripts de estilo
+
+
+

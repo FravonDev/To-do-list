@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="image/png" sizes="16x16" rel="icon" href="https://img.icons8.com/emoji/15/000000/check-mark-emoji.png">
+
     <title>Todo | Organize suas tarefas</title>
     <script src="script.js" type="text/javascript" defer></script>
 
-    <link rel="stylesheet" href="assets/style.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800,900" rel="stylesheet">
-    
-</head>
-<body>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">  </head>
+  <body>
     <header class="header">
-        <nav>
-            <a href="/">To-do</a>
-            <ul>
-                <li><a href="">Ajuda</a></li>
-                <li><a href="">GitHub</a></li>
-                <li><a href="">Linkedin</a></li>
-                <li><a href="">Sobre</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <a href="/">To-do</a>
+        <ul>
+          <li><a href="">Ajuda</a></li>
+          <li><a href="">GitHub</a></li>
+          <li><a href="">Linkedin</a></li>
+          <li><a href="">Sobre</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="container">
+      <section id="shortCard" class="card">
+        <div class="tasks"></div>
+        <form class="addTask">
+          <input id="inputShortCard" type="text" class="addTaskInput" />
+          <button type="submit">+</button>
+        </form>
+      </section>
 
-        <div id="shortCard" class="card" >
-            <div class="tasks">
-            </div>
-            <form class="addTask">
-                <input id="firstName" type="text" class="addTaskInput">
-                <button type="submit">+</button>
-            </form>
-        </div>
-        
-        <div id="mediumCard" class="card">
-            <div class="tasks">
-            </div>
-            <form class="addTask">
-                <input id="firstName" type="text" class="addTaskInput">
-                <button type="submit">+</button>
-            </form>
-        </div>
-        
-        <div id="longCard" class="card">
-            <div class="tasks">
-            </div>
-            <form class="addTask">
-                <input id="firstName" type="text" class="addTaskInput">
-                <button type="submit">+</button>
-            </form>
-        </div>
+      <section id="mediumCard" class="card">
+        <div class="tasks"></div>
+        <form class="addTask">
+          <input id="inputMediumCard" type="text" class="addTaskInput" />
+          <button type="submit">+</button>
+        </form>
+      </section>
+
+      <section id="longCard" class="card">
+        <div class="tasks"></div>
+        <form class="addTask">
+          <input id="inputLongCard" type="text" class="addTaskInput" />
+          <button type="submit">+</button>
+        </form>
+      </section>
     </main>
 
     <footer>
-        <a href="">Fravon © 2022</a>
+      <a href="">Fravon © 2022</a>
     </footer>
-</body>
+  </body>
 </html>
