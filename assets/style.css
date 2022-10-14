@@ -35,8 +35,12 @@ body {
   color: #000;
 
 }
+/* estilos para o placeholders */
+.addTaskInput:focus {
+    font-family: "Roboto Mono", sans-serif;
+}
 
-/* modal responsivo */
+/* modal*/
 body .invisible{
   display: none;
 }
@@ -143,7 +147,7 @@ header {
 
 
 /* telas menores */
-@media screen and (min-width: 0) and (max-width: 768px) {
+@media screen and (min-width: 0) and (max-width: 992px) {
   .modalBox{  
     width: 80vw;
     max-width: 90%;
@@ -267,7 +271,7 @@ header {
   .taskGroup label {
     overflow: hidden;
     display: -webkit-box;
-    max-width: 80%;
+    width: 80%;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
@@ -316,14 +320,14 @@ header {
   .addTask input {
     border: 1px solid black;
     border-radius: 2px;
-    width: 85%;
+    width: 80%;
     height: 100%;
   }
   .addTask button {
     background-color: var(--blue-card);
     border: none;
     flex: 1;
-    max-width: 15%;
+    max-width: 20%;
     border-radius: 2px;
 
     cursor: pointer;
@@ -339,11 +343,20 @@ header {
 
 /* tablets e dispositivos mais largos */
 @media screen and (min-width: 768px) and (max-width: 992px) {
-  /* esconder o header e footer */
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 6vw;
+  }
+  .taskGroup{
+    padding: 3%;
+  }
+  .addTask input{
+      border-radius: .3rem;
+  }
+  .addTask button{
+    border-radius: .3rem;
 
-
-  body {
-    background-color: cornflowerblue;
   }
 }
 
