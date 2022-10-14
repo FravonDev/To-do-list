@@ -40,6 +40,26 @@ body {
     font-family: "Roboto Mono", sans-serif;
 }
 
+#shortCard .taskGroup{
+  background-color: var(--pink-card);
+}
+#shortCard .addTask button{
+  background-color: var(--pink-card);
+}
+#mediumCard .taskGroup{
+  background-color: var(--blue-card);
+}
+
+#mediumCard .addTask button{
+  background-color: var(--blue-card);
+}
+#longCard .taskGroup{
+  background-color: var(--yellow-card);
+}
+#longCard .addTask button{
+  background-color: var(--yellow-card);
+}
+
 /* modal*/
 body .invisible{
   display: none;
@@ -124,7 +144,6 @@ body .invisible{
 /* Menu responsivo */
 header {
   background-color: var(--bg--color);
-  box-shadow: 0px 3px 10px #464646;
   position: relative;
   top: 0;
 }
@@ -266,25 +285,7 @@ header {
     text-align: start;
     font-size: 1.125rem;
   }
-  #shortCard .taskGroup{
-    background-color: var(--pink-card);
-  }
-  #shortCard .addTask button{
-    background-color: var(--pink-card);
-  }
-  #mediumCard .taskGroup{
-    background-color: var(--blue-card);
-  }
 
-  #mediumCard .addTask button{
-    background-color: var(--blue-card);
-  }
-  #longCard .taskGroup{
-    background-color: var(--yellow-card);
-  }
-  #longCard .addTask button{
-    background-color: var(--yellow-card);
-  }
 
   /* esconder o texto se ele for ultrapassar seu elemento pai */
   .taskGroup label {
@@ -312,7 +313,7 @@ header {
   }
   /* colocar o icone no botão */
   .taskGroup button::before {
-    background-image: url("./assets/static/img/delete.png");
+    background-image: url("https://raw.githubusercontent.com/flavinpv/To-do-list/main/assets/static/img/delete.png");
     background-size: 30px 30px;
     display: inline-block;
     width: 30px;
@@ -384,12 +385,13 @@ header {
 body {
     display: flex;
     flex-direction: column;
+    height: 100vh;
   }
+
   header,
   footer {
     background-color: var(--bg--color);
   }
-
 
   footer {
     height: 40px;
@@ -403,131 +405,129 @@ body {
   main {
     flex: 1;
     background-color: var(--bg-brown);
+    
   }
+
   .container {
     display: flex;
     flex-direction: row;
     gap: 3%;
     justify-content: center;
+    align-items: center;
   }
+
   #shortCard {
     background-color: var(--pink-card);
   }
+
   #mediumCard {
     background-color: var(--blue-card);
   }
+
   #longCard {
     background-color: var(--yellow-card);
   }
 
   .card {
+    display: flex;
+    flex-direction: column;
     border-radius: 4px;
     width: 30vw;
     max-width: 500px;
-    max-height: 1000px;
+    max-height: 70vh;
+    padding: .3rem;
+    background-color: #111210;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+ 
+  .tasks::-webkit-scrollbar {
+    display: none;
   }
 
   .tasks {
-    padding: 16px;
     min-width: 282px;
     min-height: 200px;
+    overflow-y: scroll;
+
   }
   .taskGroup {
     padding: 16px;
-    box-shadow: 0 2px 2px -1px #fd951fcc;
+    box-shadow: 0 2px 2px -1px #1a1919cc;
     margin: 10px 0;
     border-radius: 4px;
     font-weight: 600;
     font-size: 18px;
-    background-color: var(--pink-card);
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
   }
+  
   .taskGroup button {
-    min-height: 12px;
-    width: 12px;
-    border: solid 1px #fd951fcc;
-    background-color: red;
-    border-radius: 3px;
+    min-height: 30px;
+    width: 30px;
+    border: none;
+    background-color: transparent;
+
   }
+
+  .taskGroup button::before {
+    background-image: url("https://raw.githubusercontent.com/flavinpv/To-do-list/main/assets/static/img/delete.png");
+    background-size: 30px 30px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    content: "";
+    cursor: pointer;
+    
+  }
+  
+
+
+  .addTask{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: .3rem;
+    min-height: 2.4rem;
+    gap: .4vw;
+    align-self: flex-end;
+    
+  }
+  .addTask input{
+    flex: 1;
+    border-radius: .5em;
+  }
+  .addTask button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 0.5em 1.7em;
+    margin: 0 0.1em 0.1em 0;
+    box-sizing: border-box;
+    border-radius: .7em;
+
+    font-weight: 900;
+    transition: all 0.2s;
+    width: 70px;
+    box-shadow: 1px 1px 2px #000;
+  }
+  .addTask button:hover{
+    transition: all .4s ease;
+    cursor: pointer;
+    transform: perspective(1px) scale3d(1.1, 1.1, 1) translateZ(0) !important;
+
+  }
+
+
+  
 
 }
 /* telas grandes*/
 @media screen and (min-width: 1200px) {
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-  header,
-  footer {
-    background-color: var(--bg--color);
-  }
-  header {
-    width: 100%;
-    height: 50px;
-
-    /* organizar os items do header */
-  }
-
-  footer {
-    height: 40px;
-    width: 100%;
-    background-color: #fff2e7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  main {
-    flex: 1;
-    background-color: var(--bg-brown);
-  }
-  .container {
-    display: flex;
-    flex-direction: row;
-    gap: 3%;
-    justify-content: center;
-  }
-  #shortCard {
-    background-color: var(--pink-card);
-  }
-  #mediumCard {
-    background-color: var(--blue-card);
-  }
-  #longCard {
-    background-color: var(--yellow-card);
-  }
-
-  .card {
-    border-radius: 4px;
-    width: 30vw;
-    max-width: 500px;
-    max-height: 1000px;
-  }
-
-  .tasks {
-    padding: 16px;
-    min-width: 282px;
-    min-height: 200px;
-  }
-  .taskGroup {
-    padding: 16px;
-    box-shadow: 0 2px 2px -1px #fd951fcc;
-    margin: 10px 0;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 18px;
-    background-color: var(--pink-card);
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .taskGroup button {
-    min-height: 12px;
-    width: 12px;
-    border: solid 1px #fd951fcc;
-    background-color: red;
-    border-radius: 3px;
-  }
+  
 }
 
 /* efeitos do drag and drop */
