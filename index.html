@@ -14,6 +14,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">  </head>
     
   <body>
+    <div id="modal" class="invisible modal">
+      <div class="modalBox">
+        <a href="#"  class="close" tabindex="0" role="button">close</a>
+
+        <h1>como usar?</h1>
+        <p>Clique no campo em branco e digite uma tarefa, depois aperte em "add task"
+
+        <br> <span style="color: gray; font-size: .8rem;"> Clique em qualquer lugar para fechar esta janela.</span></p>
+      </div>
+    </div>
+
     <header class="header">
       <nav class="nav-bar">
         <div class="logo">
@@ -21,22 +32,21 @@
 
         </div>
         <ul class="nav-list">
-          <li class="nav-item"><a href="" class="nav-link">Ajuda</a></li>
-          <li class="nav-item"><a href="" class="nav-link">GitHub</a></li>
-          <li class="nav-item"><a href="" class="nav-link">Linkedin</a></li>
-          <li class="nav-item"><a href="" class="nav-link">Sobre</a></li>
+          <li class="nav-item"><a href="https://www.linkedin.com/in/flavioadriano" class="nav-link">Linkedin</a></li>
+          <li class="nav-item"><a href="https://github.com/flavinpv" class="nav-link">GitHub</a></li>
+          <li class="nav-item"><a href="" class="nav-link openModal">Ajuda</a></li>
         </ul>
         <div class="mobile-menu-icon">
           <button onclick="showMenu()"><img class="icon" src="assets/static/img/open_menu.svg" alt="icon" ></button>
         </div>
-        
       </nav>
+      
       <div class="mobile-menu">
         <ul class="nav-list-2">
-          <li class="nav-item"><a href="" class="nav-link">Ajuda</a></li>
-          <li class="nav-item"><a href="" class="nav-link">GitHub</a></li>
-          <li class="nav-item"><a href="" class="nav-link">Linkedin</a></li>
-          <li class="nav-item"><a href="" class="nav-link">Sobre</a></li>
+          <li class="nav-item"><a href="https://www.linkedin.com/in/flavioadriano" class="nav-link">Linkedin</a></li>
+          <li class="nav-item"><a href="https://github.com/flavinpv" class="nav-link">GitHub</a></li>
+          <li class="nav-item"><a href="" class="nav-link openModal">Ajuda</a></li>
+
         </ul>
       </div>
     </header>

@@ -240,3 +240,22 @@ function showMenu(){
 
   }
 }
+
+
+
+//Mostrar ou ocultar o Modal.
+
+let openModal = document.querySelectorAll(".openModal");
+openModal.forEach(element => element.onclick = function () {
+  event.preventDefault();
+  let modal = document.querySelector("#modal");
+  modal.classList.toggle("invisible");
+  showOrHideModal();
+})
+
+function showOrHideModal() {
+  modal = document.querySelector("#modal");
+  modal.onclick = function () {
+    modal.classList.toggle("invisible");
+  };
+}
