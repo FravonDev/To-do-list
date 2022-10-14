@@ -124,15 +124,21 @@ Cada lista terá:
 
 ##  em comum entre todas as telas:
 - [ ] menu hamburguer responsivo 
-
+- [ ] Modal
 
 ## estilo para telas menores que  768px
+- Exibir apenas 1 card e colocar um scroll automático para o inicio da proxima tarefa
 - para dispositivos menores, escolhi a fonte Roboto, por ser legivel até mesmo em locais com pouca luz,  trazer clareza para as letras e ainda é minimalista.
 
-- limitei o número maximo de tarefas mostradas na tela para 6.
+
+## estilo para dispositivos até 992 pixels.
+- aumentei o padding dos card
+- manter apenas 1 card com scrol
+
+## estilo para desktops
+-  Exibir os 3 cards
 
 
-    
 <hr>
 <hr>
 

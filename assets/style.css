@@ -103,6 +103,24 @@ body .invisible{
   transform: rotate(-45deg) translate(-50%, -50%);
 }
 
+/* animação na navbar */
+.nav-bar li:after,
+.nav-bar li:before {
+ content: "";
+ width: 0%;
+ display: block;
+ height: 1px;
+ transition: all 0.3s ease;
+ margin-top: 2px;
+}
+
+
+.nav-bar li:hover::after {
+ width: 100%;
+ height: 1px;
+ background-color: #000;
+}
+
 /* Menu responsivo */
 header {
   background-color: var(--bg--color);
@@ -118,6 +136,7 @@ header {
 .logo {
   display: flex;
   align-items: center;
+  font-weight:bolder;
   color: #000;
 }
 
@@ -361,10 +380,77 @@ header {
 }
 
 /* telas de desktops */
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  body {
-    background-color: darkcyan;
+@media screen and (min-width: 992px) {
+body {
+    display: flex;
+    flex-direction: column;
   }
+  header,
+  footer {
+    background-color: var(--bg--color);
+  }
+
+
+  footer {
+    height: 40px;
+    width: 100%;
+    background-color: #fff2e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    flex: 1;
+    background-color: var(--bg-brown);
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    justify-content: center;
+  }
+  #shortCard {
+    background-color: var(--pink-card);
+  }
+  #mediumCard {
+    background-color: var(--blue-card);
+  }
+  #longCard {
+    background-color: var(--yellow-card);
+  }
+
+  .card {
+    border-radius: 4px;
+    width: 30vw;
+    max-width: 500px;
+    max-height: 1000px;
+  }
+
+  .tasks {
+    padding: 16px;
+    min-width: 282px;
+    min-height: 200px;
+  }
+  .taskGroup {
+    padding: 16px;
+    box-shadow: 0 2px 2px -1px #fd951fcc;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: var(--pink-card);
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .taskGroup button {
+    min-height: 12px;
+    width: 12px;
+    border: solid 1px #fd951fcc;
+    background-color: red;
+    border-radius: 3px;
+  }
+
 }
 /* telas grandes*/
 @media screen and (min-width: 1200px) {
@@ -444,7 +530,6 @@ header {
   }
 }
 
-/* FIXME: */
 /* efeitos do drag and drop */
 .highlight {
   background-color: #fd951f08;

@@ -4,24 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link type="image/png" sizes="16x16" rel="icon" href="https://img.icons8.com/emoji/15/000000/check-mark-emoji.png">
+    <link type="image/png" sizes="16x16" rel="icon"
+    href="https://img.icons8.com/emoji/15/000000/check-mark-emoji.png"/>
 
     <title>Todo | Organize suas tarefas</title>
     <script src="script.js" type="text/javascript" defer></script>
 
     <link rel="stylesheet" href="assets/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">  </head>
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"/>
+  </head>
+
   <body>
     <div id="modal" class="invisible modal">
       <div class="modalBox">
-        <a href="#"  class="close" tabindex="0" role="button">close</a>
+        <a href="#" class="close" tabindex="0" role="button">close</a>
 
         <h1>como usar?</h1>
-        <p>Clique no campo em branco e digite uma tarefa, depois aperte em "add task"
+        <p>
+          Clique no campo em branco e digite uma tarefa, depois aperte em "add
+          task"
 
-        <br> <span style="color: gray; font-size: .8rem;"> Clique em qualquer lugar para fechar esta janela.</span></p>
+          <br />
+          <span style="color: gray; font-size: 0.8rem">
+            Clique em qualquer lugar para fechar esta janela.</span
+          >
+        </p>
       </div>
     </div>
 
@@ -29,24 +39,42 @@
       <nav class="nav-bar">
         <div class="logo">
           <a href="/" id="logo">Logo</a>
-
         </div>
         <ul class="nav-list">
-          <li class="nav-item"><a href="https://www.linkedin.com/in/flavioadriano" class="nav-link">Linkedin</a></li>
-          <li class="nav-item"><a href="https://github.com/flavinpv" class="nav-link">GitHub</a></li>
-          <li class="nav-item"><a href="" class="nav-link openModal">Ajuda</a></li>
+          <li class="nav-item">
+            <a href="https://www.linkedin.com/in/flavioadriano" class="nav-link"
+              >Linkedin</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="https://github.com/flavinpv" class="nav-link">GitHub</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link openModal">Ajuda</a>
+          </li>
         </ul>
         <div class="mobile-menu-icon">
-          <button onclick="showMenu()"><img class="icon" src="assets/static/img/open_menu.svg" alt="icon" ></button>
+          <button onclick="showMenu()">
+            <img
+              class="icon"
+              src="assets/static/img/open_menu.svg"
+              alt="icon"
+            />
+          </button>
         </div>
       </nav>
-      
+
       <div class="mobile-menu">
         <ul class="nav-list-2">
-          <li class="nav-item"><a href="https://www.linkedin.com/in/flavioadriano" class="nav-link">Linkedin</a></li>
-          <li class="nav-item"><a href="https://github.com/flavinpv" class="nav-link">GitHub</a></li>
-          <li class="nav-item"><a href="" class="nav-link openModal">Ajuda</a></li>
-
+          <li class="nav-item">
+            <a href="https://www.linkedin.com/in/flavioadriano" class="nav-link">Linkedin</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://github.com/flavinpv" class="nav-link">GitHub</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link openModal">Ajuda</a>
+          </li>
         </ul>
       </div>
     </header>
@@ -55,7 +83,11 @@
       <section id="shortCard" class="card">
         <div class="tasks"></div>
         <form class="addTask">
-          <input id="inputShortCard" type="text" class="addTaskInput" autocomplete="off"/>
+          <input
+            id="inputShortCard"
+            type="text"
+            class="addTaskInput"
+            autocomplete="off"/>
           <button type="submit">+</button>
         </form>
       </section>
@@ -63,7 +95,11 @@
       <section id="mediumCard" class="card">
         <div class="tasks"></div>
         <form class="addTask">
-          <input id="inputMediumCard" type="text" class="addTaskInput" autocomplete="off"/>
+          <input
+            id="inputMediumCard"
+            type="text"
+            class="addTaskInput"
+            autocomplete="off"/>
           <button type="submit">+</button>
         </form>
       </section>
@@ -71,7 +107,11 @@
       <section id="longCard" class="card">
         <div class="tasks"></div>
         <form class="addTask">
-          <input id="inputLongCard" type="text" class="addTaskInput" autocomplete="off"/>
+          <input
+            id="inputLongCard"
+            type="text"
+            class="addTaskInput"
+            autocomplete="off"/>
           <button type="submit">+</button>
         </form>
       </section>
