@@ -483,8 +483,6 @@ body {
     
   }
   
-
-
   .addTask{
     display: flex;
     flex-direction: row;
@@ -503,17 +501,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    padding: 0.5em 1.7em;
+    width: 40%;
+    max-width: 50px;
     margin: 0 0.1em 0.1em 0;
-    box-sizing: border-box;
     border-radius: .7em;
 
     font-weight: 900;
     transition: all 0.2s;
-    width: 70px;
     box-shadow: 1px 1px 2px #000;
   }
+  
   .addTask button:hover{
     transition: all .4s ease;
     cursor: pointer;
@@ -547,7 +544,7 @@ body {
 }
 
 .over {
-  background-color: #ff7da922;
+  background-color: #1c1c1c07;
 }
 
 /* custom checkbox */
