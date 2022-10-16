@@ -8,10 +8,13 @@
 </div>
 
 
+
+
 # Índice 
 
 * [Índice](#índice)
 * [Introdução ](#introdução-do-projeto)
+* [Screenshots](#screenshots)
 * [Funcionalidades e Demonstração da Aplicação](#-funcionalidades-e-demonstra%C3%A7%C3%A3o-da-aplica%C3%A7%C3%A3o)
 * [Acesso ao Projeto](#-acesso-ao-projeto)
 * [Tecnologias utilizadas](#técnicas-e-tecnologias-utilizadas)
@@ -20,8 +23,23 @@
 # introdução do projeto
 
 
+
+
 Projeto feito com HTML, CSS e JavaScript para treinar sobre orientação a objetos, persistir os dados, responsividade,
 semântica e elementos customizados com CSS.
+
+# Screenshots
+  <div align="center">
+  
+
+<img  alt="todo list screenshot" src="https://user-images.githubusercontent.com/62142146/196060657-336781d4-d5a3-4380-a2fe-23bcede6c3f7.png" width="800">
+
+<img  alt="todo list screenshot" src="https://user-images.githubusercontent.com/62142146/196060753-0bc73769-01b6-494e-aacb-a690be210a91.png" width="400">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img  alt="todo list screenshot" src="https://user-images.githubusercontent.com/62142146/196060814-f6ec4f9a-0b7b-440e-98bc-d635abd9e579.png" width="200">
+
+
+  </div>
 
 # 🔨 Funcionalidades e Demonstração da Aplicação
 
