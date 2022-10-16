@@ -12,10 +12,9 @@
 
 * [Índice](#índice)
 * [Introdução ](#introdução-do-projeto)
-* [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
-* [Acesso ao Projeto](#acesso-ao-projeto)
+* [Funcionalidades e Demonstração da Aplicação](#-funcionalidades-e-demonstra%C3%A7%C3%A3o-da-aplica%C3%A7%C3%A3o)
+* [Acesso ao Projeto](#-acesso-ao-projeto)
 * [Tecnologias utilizadas](#técnicas-e-tecnologias-utilizadas)
-* [Conclusão](#conclusão)
 
 
 # introdução do projeto
