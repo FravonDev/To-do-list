@@ -213,7 +213,9 @@ class Card {
           this.classList.remove("over");
         });
         //quando for dropado, salve os elementos.
-        task.ondrop = function () {
+        task.ondrop = function (e) {
+          e.preventDefault();
+
           this.classList.remove("over");
         };
       });

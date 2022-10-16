@@ -436,14 +436,29 @@ header {
   }
   .taskGroup {
     padding: 16px;
-    box-shadow: 0 2px 2px -1px #1a1919cc;
+    box-shadow: 0 4px 4px -1px #1a1919cc;
     margin: 10px 0;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 18px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 5%;
+    gap: 5%;
+    align-items: center;
+    text-align: start;
+    font-size: 1.125rem;
+    
+  }
+ 
+
+  /* esconder o texto se ele for ultrapassar seu elemento pai */
+  .taskGroup label {
+    overflow: hidden;
+    display: -webkit-box;
+    width: 80%;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   .taskGroup button {
